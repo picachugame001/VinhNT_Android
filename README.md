@@ -1,2 +1,3 @@
 # VinhNT_Android
-test android
+Lap trinh Android
+sdfsdf
