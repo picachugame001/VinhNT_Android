@@ -1,0 +1,16 @@
+.gradle/
+.idea/
+build/
+gradle/
+VinhNT_Android.iml
+app/app.iml
+app/build/
+app/build.gradle
+app/proguard-rules.pro
+Test01.iml
+gradlew
+gradlew.bat
+settings.gradle
+local.properties
+build.gradle
+gradle.properties
