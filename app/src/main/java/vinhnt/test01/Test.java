@@ -28,6 +28,7 @@ public class Test extends AppCompatActivity {
         a.addView(c);
         a.addView(d);
         setContentView(a);
+		//test revert
     }
 
 }
