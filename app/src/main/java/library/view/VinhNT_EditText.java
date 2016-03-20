@@ -24,6 +24,7 @@ public class VinhNT_EditText extends EditText {
                 new InputFilter.LengthFilter(getMaxLength())}
             //..
         );
+        setMaxLines (1);
     }
 
     public VinhNT_EditText(Context context) {
@@ -39,5 +40,11 @@ public class VinhNT_EditText extends EditText {
     public VinhNT_EditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
+    }
+    public void setMaxLength(){
+        InputFilter.LengthFilter gioihan = new InputFilter.LengthFilter(getMaxLength());
+        InputFilter.LengthFilter[] mangfilter= new InputFilter.LengthFilter[1];
+        mangfilter[0] = gioihan;
+        setFilters(mangfilter);
     }
 }

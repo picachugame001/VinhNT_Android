@@ -15,6 +15,7 @@ import android.widget.Button;
 import library.drawable.Background_01;
 import library.drawable.Background_02;
 import library.drawable.State_01;
+import vinhnt.test01.R;
 
 /**
  * Created by Picachu on 11/4/2015.
@@ -24,14 +25,15 @@ public class VinhNT_Button extends Button implements View.OnClickListener {
    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
    public void init(){
        //setBackgroundColor(1);
-       setBackgroundDrawable(new State_01());
-       setText("Button của Vinh");
+       //setBackgroundDrawable(new State_01());
+       setText(this.getNameButton());
        ViewGroup.LayoutParams layoutSize;
        layoutSize = new ViewGroup.LayoutParams(
                             ViewGroup.LayoutParams.WRAP_CONTENT
-                        ,   ViewGroup.LayoutParams.WRAP_CONTENT
+                        ,   ViewGroup.LayoutParams.MATCH_PARENT
                     );
        setLayoutParams(layoutSize);
+       setOnClickListener(this);
    }
     public VinhNT_Button(Context context) {
         super(context);
@@ -40,6 +42,7 @@ public class VinhNT_Button extends Button implements View.OnClickListener {
 
     public VinhNT_Button(Context context, AttributeSet attrs) {
         super(context, attrs);
+
         init();
 
     }
@@ -57,5 +60,8 @@ public class VinhNT_Button extends Button implements View.OnClickListener {
     @Override
     public void onClick(View v) {
 
+    }
+    public String getNameButton(){
+        return "Button của Vinh";
     }
 }
