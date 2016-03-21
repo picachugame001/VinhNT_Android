@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import library.connect.VinhNT_HTTP;
 import vinhnt.test01.R;
 
 /**
@@ -17,6 +18,7 @@ import vinhnt.test01.R;
  */
 public class VinhNT_Activity extends AppCompatActivity {
     private ImageView icon;
+    private VinhNT_HTTP requestHTTP;
     //private
     public VinhNT_Activity(){
         super();
@@ -35,6 +37,8 @@ public class VinhNT_Activity extends AppCompatActivity {
         icon = new ImageView(this);
         icon.setImageResource(R.mipmap.icon_default);
         //
+        requestHTTP = new VinhNT_HTTP(this);
+        //
         //set layout
         LinearLayout mainView = new LinearLayout(this);
         setContentView(mainView);
@@ -46,7 +50,7 @@ public class VinhNT_Activity extends AppCompatActivity {
         mainView.addView(getFooter(),VinhNT_Common.size_10_per_HORIZONTAL);
 
     }
-    public ScrollView getContent(){
+    public ScrollView getContent() {
         ScrollView a = new ScrollView(this);
         return a;
     }
@@ -69,5 +73,15 @@ public class VinhNT_Activity extends AppCompatActivity {
     }
     public String getTitle_VinhNT(){
         return "Default title VinhNT";
+    }
+    @Override
+    protected void onStop () {
+        super.onStop();
+        if (requestHTTP != null) {
+            requestHTTP.cancelAll();
+        }
+    }
+    public VinhNT_HTTP getHTTP(){
+        return requestHTTP;
     }
 }

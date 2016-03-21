@@ -55,6 +55,7 @@ public class Login_Form extends VinhNT_Activity{
     public LinearLayout getFooter(){
         LinearLayout footer = super.getFooter();
         buttonLogin = new Button_Login(this);
+        buttonLogin.setHTTP(getHTTP());
         footer.addView(buttonLogin);
         buttonDangKy = new Button_DangKi(this);
         footer.addView(buttonDangKy);
