@@ -3,12 +3,14 @@ package library.connect;
 import android.content.Context;
 import android.util.Log;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Cache;
 import com.android.volley.Network;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.VolleyLog;
 import com.android.volley.toolbox.BasicNetwork;
 import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HttpStack;
@@ -21,6 +23,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Map;
 
 import library.activity.VinhNT_Activity;
 import library.view.VinhNT_Dialog;
@@ -35,12 +40,14 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         context = nguCanh;
         // Instantiate the cache
         Cache cache = new DiskBasedCache(context.getCacheDir(), 1024 * 1024); // 1MB cap
+        cache.clear();
         //
         // Set up the network to use HttpURLConnection as the HTTP client.
         Network network = new BasicNetwork(new HurlStack());
         //
         // Instantiate the RequestQueue with the cache and network.
         queue = new RequestQueue(cache,network);
+
         //
 
 
@@ -49,9 +56,9 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         //
         queue.start();
         try{
-            String url ="http://192.168.0.100/xampp";
+            String url ="http://192.168.0.101/bongda";
             // Request a string response from the provided URL.
-            /*StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+           /* StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                     new Response.Listener<String>() {
                         @Override
                         public void onResponse(String response) {
@@ -67,21 +74,23 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
             // Add the request to the RequestQueue.
             stringRequest.setTag(context.getTitle_VinhNT());
             //
-
             queue.add(stringRequest);*/
             //
+
+
             JSONObject jsonBody = new JSONObject();
             jsonBody.put("user","VinhNT");
-            JsonObjectRequest a = new JsonObjectRequest(Request.Method.GET,url,jsonBody,this,this);
+            jsonBody.put("function", "login");
+            JsonObjectRequest a = new JsonObjectRequest(Request.Method.POST,url,jsonBody,this,this);
             queue.add(a);
-            //queue.stop();
+
 
         }
         /*catch (JSONException  e){
             Log.d("Error","JSONException");
         }*/
         catch (Exception e){
-            Log.d("Error","JSONException");
+            Log.d("Error","JSONException"+ e.getMessage());
         }
 
     }
