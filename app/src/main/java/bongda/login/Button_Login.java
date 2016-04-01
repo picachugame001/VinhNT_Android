@@ -36,14 +36,7 @@ public class Button_Login extends VinhNT_Button  {
         if(VinhNT_Common.isNetworkAvailable(getContext())){
             Log.d("ket noi","co");
             //String json = request.bowlingJson("Jesse", "Jake");
-            String json = "{\"user\":\"abc\",\"function\":\"def\"}";
-            String response = null;
-            try {
-                response = request.post("http://picachusays.esy.es/", json);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            System.out.println(response);
+            request.sendRequest();
         }
         else{
             Dialog_LoiKetNoi error = new Dialog_LoiKetNoi(getContext());

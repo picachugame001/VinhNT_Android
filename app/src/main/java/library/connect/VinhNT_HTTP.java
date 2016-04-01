@@ -2,6 +2,20 @@ package library.connect;
 
 import android.util.Log;
 
+import com.android.volley.Cache;
+import com.android.volley.Network;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.BasicNetwork;
+import com.android.volley.toolbox.DiskBasedCache;
+import com.android.volley.toolbox.HurlStack;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -12,45 +26,63 @@ import java.util.Hashtable;
 import java.util.Map;
 
 import library.activity.VinhNT_Activity;
-import library.view.VinhNT_Dialog;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+import library.activity.VinhNT_Common;
+
 
 /**
  * Created by Picachu on 3/20/2016.
  */
-public class VinhNT_HTTP  {
-    public static final MediaType JSON
-            = MediaType.parse("application/json; charset=utf-8");
+public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.ErrorListener {
+    private VinhNT_Activity context;
+    private RequestQueue queue;
+    private JSONObject data;
 
-    private OkHttpClient client;
+    public VinhNT_HTTP(VinhNT_Activity nguCanh) {
+        context = nguCanh;
+        // Instantiate the cache
+        Cache cache = new DiskBasedCache(context.getCacheDir(), 1024 * 1024); // 1MB cap
+        //
+        // Set up the network to use HttpURLConnection as the HTTP client.
+        Network network = new BasicNetwork(new HurlStack());
+        //
+        // Instantiate the RequestQueue with the cache and network.
+        queue = new RequestQueue(cache, network);
+        //
 
-    public VinhNT_HTTP(){
-        client = new OkHttpClient();
+
+    }
+    public void setData() throws JSONException {
+        data = new JSONObject();
+        data.put("user", "VinhNT");
+    }
+    public void sendRequest() {
+        //
+
+        queue.start();
+        try {
+            setData();
+            //
+            JsonObjectRequest a = new JsonObjectRequest(Request.Method.POST, VinhNT_Common.link, data, this, this);
+            a.setTag(context.getTitle_VinhNT());
+            queue.add(a);
+
+        } catch (Exception e) {
+            Log.d("Error", "JSONException");
+        }
+
     }
 
-    public  String post(String url, String json) throws IOException {
-        RequestBody body = RequestBody.create(JSON, json);
-        Request request = new Request.Builder()
-                .url(url)
-                .post(body)
-                .build();
-        Response response = client.newCall(request).execute();
-        return response.body().string();
+    public void cancelAll() {
+        queue.cancelAll(context.getTitle_VinhNT());
     }
 
-    public String bowlingJson(String player1, String player2) {
-        return "{'winCondition':'HIGH_SCORE',"
-                + "'name':'Bowling',"
-                + "'round':4,"
-                + "'lastSaved':1367702411696,"
-                + "'dateStarted':1367702378785,"
-                + "'players':["
-                + "{'name':'" + player1 + "','history':[10,8,6,7,8],'color':-13388315,'total':39},"
-                + "{'name':'" + player2 + "','history':[6,10,5,10,10],'color':-48060,'total':41}"
-                + "]}";
+    @Override
+    public void onResponse(JSONObject response) {
+        Log.d("Ket noi", "OK roi nhe");
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+        Log.d("Ket noi", "Loi roi");
     }
 }

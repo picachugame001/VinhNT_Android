@@ -2,18 +2,11 @@
 <items version="2" >
 
     <item
-        jar="D:\Workspaces\VinhNT_Android\app\build\intermediates\exploded-aar\com.android.support\design\23.1.0\jars\classes.jar"
+        jar="D:\Workspaces\VinhNT_Android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\libs\internal_impl-23.1.0.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
-        <dex dex="D:\Workspaces\VinhNT_Android\app\build\intermediates\pre-dexed\debug\classes-9f532c515d33d5f748cdabe617ab9e3d97795fed.jar" />
-    </item>
-    <item
-        jar="C:\Users\Picachu\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.2.0\f7873a2ebde246a45c2a8d6f3247108b4c88a879\okhttp-3.2.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
-        <dex dex="D:\Workspaces\VinhNT_Android\app\build\intermediates\pre-dexed\debug\okhttp-3.2.0-20254ce2501e483464e406596abf2b3c45670da9.jar" />
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="D:\Workspaces\VinhNT_Android\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.0-3edd59b3aa7b8c74e751d41ba73f514d412a3e38.jar" />
     </item>
     <item
         jar="D:\Workspaces\VinhNT_Android\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.1.0\jars\classes.jar"
@@ -23,11 +16,11 @@
         <dex dex="D:\Workspaces\VinhNT_Android\app\build\intermediates\pre-dexed\debug\classes-864d1f077ffe346a288ac76cefa42324d03ea8df.jar" />
     </item>
     <item
-        jar="C:\Users\Picachu\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.6.0\98476622f10715998eacf9240d6b479f12c66143\okio-1.6.0.jar"
+        jar="D:\Workspaces\VinhNT_Android\app\build\intermediates\exploded-aar\com.android.volley\volley\unspecified\jars\classes.jar"
         jumboMode="false"
         revision="23.0.1"
-        sha1="98476622f10715998eacf9240d6b479f12c66143">
-        <dex dex="D:\Workspaces\VinhNT_Android\app\build\intermediates\pre-dexed\debug\okio-1.6.0-3eb035865f3d02eb81904ac7f58e6f783900d8a2.jar" />
+        sha1="c53c987f5468c001cf242dddb02beecc342d0d3e">
+        <dex dex="D:\Workspaces\VinhNT_Android\app\build\intermediates\pre-dexed\debug\classes-4a9820c385fa5500f7785c0e077c700f7c379b17.jar" />
     </item>
     <item
         jar="D:\Workspaces\VinhNT_Android\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.1.0\jars\classes.jar"
@@ -44,18 +37,18 @@
         <dex dex="D:\Workspaces\VinhNT_Android\app\build\intermediates\pre-dexed\debug\classes-2b2f4d6e5562a896010e0b3b06f04230065f7204.jar" />
     </item>
     <item
+        jar="D:\Workspaces\VinhNT_Android\app\build\intermediates\exploded-aar\com.android.support\design\23.1.0\jars\classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="D:\Workspaces\VinhNT_Android\app\build\intermediates\pre-dexed\debug\classes-9f532c515d33d5f748cdabe617ab9e3d97795fed.jar" />
+    </item>
+    <item
         jar="C:\Users\Picachu\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.1.0\support-annotations-23.1.0.jar"
         jumboMode="false"
         revision="23.0.1"
         sha1="92e3fc113ec3ee36b64603a38857b95700025633">
         <dex dex="D:\Workspaces\VinhNT_Android\app\build\intermediates\pre-dexed\debug\support-annotations-23.1.0-41533aeca3ba6ef69aefb91875ce1d080081e5e9.jar" />
-    </item>
-    <item
-        jar="D:\Workspaces\VinhNT_Android\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.1.0\jars\libs\internal_impl-23.1.0.jar"
-        jumboMode="false"
-        revision="23.0.1"
-        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
-        <dex dex="D:\Workspaces\VinhNT_Android\app\build\intermediates\pre-dexed\debug\internal_impl-23.1.0-3edd59b3aa7b8c74e751d41ba73f514d412a3e38.jar" />
     </item>
 
 </items>

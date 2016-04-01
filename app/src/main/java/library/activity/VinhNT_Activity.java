@@ -37,7 +37,7 @@ public class VinhNT_Activity extends AppCompatActivity {
         icon = new ImageView(this);
         icon.setImageResource(R.mipmap.icon_default);
         //
-        requestHTTP = new VinhNT_HTTP();
+        requestHTTP = new VinhNT_HTTP(this);
         //
         //set layout
         LinearLayout mainView = new LinearLayout(this);
@@ -78,7 +78,7 @@ public class VinhNT_Activity extends AppCompatActivity {
     protected void onStop () {
         super.onStop();
         if (requestHTTP != null) {
-            //requestHTTP.cancelAll();
+            requestHTTP.cancelAll();
         }
     }
     public VinhNT_HTTP getHTTP(){
