@@ -1,8 +1,11 @@
 package bongda.login;
 
 import android.content.Context;
+import android.os.StrictMode;
 import android.util.Log;
 import android.view.View;
+
+import java.io.IOException;
 
 import library.activity.Dialog_LoiKetNoi;
 import library.activity.VinhNT_Common;
@@ -27,9 +30,20 @@ public class Button_Login extends VinhNT_Button  {
     }
     @Override
     public void onClick(View v) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                .permitAll().build();
+        StrictMode.setThreadPolicy(policy);
         if(VinhNT_Common.isNetworkAvailable(getContext())){
             Log.d("ket noi","co");
-            request.sendRequest();
+            //String json = request.bowlingJson("Jesse", "Jake");
+            String json = "{\"user\":\"abc\",\"function\":\"def\"}";
+            String response = null;
+            try {
+                response = request.post("http://picachusays.esy.es/", json);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            System.out.println(response);
         }
         else{
             Dialog_LoiKetNoi error = new Dialog_LoiKetNoi(getContext());
