@@ -53,11 +53,11 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     }
     public void setData() throws JSONException {
         data = new JSONObject();
-        data.put("user", "VinhNT");
+        data.put("function", "VinhNT");
     }
     public void sendRequest() {
         //
-
+        queue.stop();
         queue.start();
         try {
             setData();
