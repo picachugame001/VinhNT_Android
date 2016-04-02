@@ -18,6 +18,7 @@ public class Login_Form extends VinhNT_Activity{
     private Passworkd password;
     private Button_Login buttonLogin;
     private Button_DangKi buttonDangKy;
+    private Login_HTTP requestLogin;
     //
     /*public void init(){
         super.init();
@@ -25,6 +26,10 @@ public class Login_Form extends VinhNT_Activity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+    }
+    @Override
+    public void init(){
+        super.init();
     }
     @Override
     public String getTitle_VinhNT(){
@@ -53,9 +58,11 @@ public class Login_Form extends VinhNT_Activity{
     }
     @Override
     public LinearLayout getFooter(){
+        requestLogin = new Login_HTTP(this,user,password);
+        requestHTTP = requestLogin;
         LinearLayout footer = super.getFooter();
         buttonLogin = new Button_Login(this);
-        buttonLogin.setHTTP(getHTTP());
+        buttonLogin.setHTTP(requestLogin);
         footer.addView(buttonLogin);
         buttonDangKy = new Button_DangKi(this);
         footer.addView(buttonDangKy);

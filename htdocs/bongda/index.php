@@ -3,6 +3,7 @@
 		include $class_name . '.php';
 	}
 	$request_body = file_get_contents('php://input');//lay body request
+	$ketnoi_SQL = new class_dir\mysql_dir\VinhNT_Mysql();
 	//$request_body = $_POST['json'];
 	$inputArray = json_decode($request_body,true);
 	//

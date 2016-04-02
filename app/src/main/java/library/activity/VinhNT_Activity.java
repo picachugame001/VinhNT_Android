@@ -18,7 +18,7 @@ import vinhnt.test01.R;
  */
 public class VinhNT_Activity extends AppCompatActivity {
     private ImageView icon;
-    private VinhNT_HTTP requestHTTP;
+    protected VinhNT_HTTP requestHTTP;
     //private
     public VinhNT_Activity(){
         super();

@@ -17,8 +17,8 @@ import library.view.VinhNT_Dialog;
  * Created by Picachu on 3/19/2016.
  */
 public class Button_Login extends VinhNT_Button  {
-    private VinhNT_HTTP request;
-    public void setHTTP(VinhNT_HTTP a){
+    private Login_HTTP request;
+    public void setHTTP(Login_HTTP a){
         request = a;
     }
     public Button_Login(Context context) {

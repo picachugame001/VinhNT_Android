@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.Map;
 
+import library.activity.Dialog_LoiKetNoi;
 import library.activity.VinhNT_Activity;
 import library.activity.VinhNT_Common;
 
@@ -33,10 +34,13 @@ import library.activity.VinhNT_Common;
  * Created by Picachu on 3/20/2016.
  */
 public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.ErrorListener {
-    private VinhNT_Activity context;
+    protected VinhNT_Activity context;
     private RequestQueue queue;
-    private JSONObject data;
+    protected JSONObject data;
 
+    public VinhNT_Activity getContext(){
+        return context;
+    }
     public VinhNT_HTTP(VinhNT_Activity nguCanh) {
         context = nguCanh;
         // Instantiate the cache
@@ -84,5 +88,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     @Override
     public void onErrorResponse(VolleyError error) {
         Log.d("Ket noi", "Loi roi");
+        Dialog_LoiKetNoi error2 = new Dialog_LoiKetNoi(context);
+        error2.show();
     }
 }
