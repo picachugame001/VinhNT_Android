@@ -1,6 +1,8 @@
 package bongda.login;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.os.Message;
 
 import library.view.VinhNT_Dialog;
 
@@ -13,4 +15,5 @@ public class Login_Error extends VinhNT_Dialog {
         setTitle("Lỗi đăng nhập");
         setMessage("Tài khoản hoặc mật khẩu chưa đúng");
     }
+
 }

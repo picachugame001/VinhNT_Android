@@ -5,10 +5,15 @@ import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import library.connect.VinhNT_Parameter;
+
 /**
  * Created by Picachu on 11/11/2015.
  */
-public class VinhNT_EditText extends EditText {
+public class VinhNT_EditText extends EditText implements VinhNT_Parameter {
 
     public String getHintToShow(){
         return "nhập gì vào đây";
@@ -46,5 +51,19 @@ public class VinhNT_EditText extends EditText {
         InputFilter.LengthFilter[] mangfilter= new InputFilter.LengthFilter[1];
         mangfilter[0] = gioihan;
         setFilters(mangfilter);
+    }
+
+    @Override
+    public void addParam(JSONObject input) {
+        try{
+            input.put(get_field_name(),this.getText());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public String get_field_name() {
+        return "a";
     }
 }

@@ -1,44 +1,31 @@
-package bongda.login;
+package bongda.dangkycauthu;
 
-import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import bongda.login.Password;
+import bongda.login.User;
 import library.activity.VinhNT_Activity;
 
 /**
- * Created by Picachu on 3/17/2016.
+ * Created by Picachu on 4/3/2016.
  */
-public class Login_Form extends VinhNT_Activity{
+public class DangKyCauThu_Form extends VinhNT_Activity {
     private User user;
     private Password password;
-    private Button_Login buttonLogin;
-    private Button_DangKi buttonDangKy;
-    private Login_HTTP requestLogin;
-    //
-    /*public void init(){
-        super.init();
-    }*/
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-    @Override
-    public void init(){
-        super.init();
-    }
+    private Button_OK_DangKy buton_ok;
+    private DangKyCauThu_HTTP dangky_http;
     @Override
     public String getTitle_VinhNT(){
-        return "Login Form";
+        return "Đăng ký cầu thủ";
     }
     @Override
-    public ScrollView getContent(){
+    public ScrollView getContent() {
         TextView tenUser = new TextView(this);
         tenUser.setText("User ID:");
         TextView passwordLabel = new TextView(this);
         passwordLabel.setText("Password:");
-        //
         user = new User(this);
         password = new Password(this);
         //
@@ -55,16 +42,14 @@ public class Login_Form extends VinhNT_Activity{
     }
     @Override
     public LinearLayout getFooter(){
-        requestLogin = new Login_HTTP(this);
-        requestLogin.set_Param(user, password);
-        requestHTTP = requestLogin;
+        //
+        buton_ok = new Button_OK_DangKy(this);
+        dangky_http = new DangKyCauThu_HTTP(this);
+        dangky_http.setInfo(user,password);
+        buton_ok.setHTTP(dangky_http);
+        //
         LinearLayout footer = super.getFooter();
-        buttonLogin = new Button_Login(this);
-        buttonLogin.setHTTP(requestLogin);
-        footer.addView(buttonLogin);
-        buttonDangKy = new Button_DangKi(this);
-        footer.addView(buttonDangKy);
+        footer.addView(buton_ok);
         return footer;
     }
-
 }

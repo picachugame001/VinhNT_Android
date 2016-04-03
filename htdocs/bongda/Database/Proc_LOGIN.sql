@@ -5,7 +5,10 @@ CREATE PROCEDURE Proc_Login(
 	in_user VARCHAR(9)
 )
 BEGIN
-	SELECT * FROM Table_USER
+	SELECT
+			id 
+		,	password
+	FROM CauThu
 	WHERE id = in_user;
 END
 //

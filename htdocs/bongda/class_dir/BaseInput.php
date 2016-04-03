@@ -16,6 +16,9 @@ class BaseInput{
 		echo "\n" . $this->value; 
 	}
 	public function getValue(){
-		return $this->value; 
+		return  $this->value; 
+	}
+	public function getValueParam(){
+		return  '\'' . $this->value . '\''; 
 	}
 }

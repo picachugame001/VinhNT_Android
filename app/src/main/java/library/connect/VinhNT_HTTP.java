@@ -37,6 +37,8 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     protected VinhNT_Activity context;
     private RequestQueue queue;
     protected JSONObject data;
+    protected VinhNT_Array_Parameter params;
+    private String tab = "abc1234";
 
     public VinhNT_Activity getContext(){
         return context;
@@ -52,22 +54,24 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         // Instantiate the RequestQueue with the cache and network.
         queue = new RequestQueue(cache, network);
         //
+        params = new VinhNT_Array_Parameter();
 
 
     }
-    public void setData() throws JSONException {
+    public void setData(){
+        //
         data = new JSONObject();
-        data.put("function", "VinhNT");
+        params.set_Function_Name(data,get_Function_Name());
+        params.set_Parameter(data);
     }
     public void sendRequest() {
         //
-        queue.stop();
         queue.start();
         try {
             setData();
             //
             JsonObjectRequest a = new JsonObjectRequest(Request.Method.POST, VinhNT_Common.link, data, this, this);
-            a.setTag(context.getTitle_VinhNT());
+            a.setTag(tab);
             queue.add(a);
 
         } catch (Exception e) {
@@ -83,6 +87,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     @Override
     public void onResponse(JSONObject response) {
         Log.d("Ket noi", "OK roi nhe");
+        //queue.cancelAll(tab);
     }
 
     @Override
@@ -90,5 +95,9 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         Log.d("Ket noi", "Loi roi");
         Dialog_LoiKetNoi error2 = new Dialog_LoiKetNoi(context);
         error2.show();
+        //queue.cancelAll(tab);
+    }
+    public String get_Function_Name(){
+        return "VinhNT";
     }
 }

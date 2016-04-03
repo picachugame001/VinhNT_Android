@@ -15,10 +15,13 @@ class Func_Login extends base\BaseFunction{
 	}
 	public function checkLogin($user,$pass){
 		global $ketnoi_SQL;
-		$ketnoi_SQL->moKetNoi();
-		$a = $ketnoi_SQL->thucThi_SQL('CALL Proc_Login(\''.$user->getValue().'\')');
-		$ketnoi_SQL->dongKetNoi();
-		$mangKetQua = $a->fetch_all(MYSQLI_ASSOC);
+		//
+		$param_array = new \class_dir\param_dir\Array_Param();
+		$param_array->add_param($user);
+		//
+		//$ketnoi_SQL->moKetNoi();
+		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Login',$param_array);
+		//$ketnoi_SQL->dongKetNoi();
 		if(count($mangKetQua)==0){
 			$trave["result"] = false;
 		}

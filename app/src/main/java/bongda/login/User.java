@@ -33,6 +33,14 @@ public class User extends VinhNT_EditText {
         mangMoi[mangCu.length] = gioiHanNhap;
         //
         setFilters(mangMoi);
-}
+    }
+    @Override
+    public int getMaxLength(){
+        return 9; // max length in text field
+    }
+    @Override
+    public String get_field_name(){
+        return "user";
+    }
 
 }

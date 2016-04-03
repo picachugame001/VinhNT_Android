@@ -13,8 +13,8 @@ import library.view.VinhNT_EditText;
 /**
  * Created by Picachu on 3/19/2016.
  */
-public class Passworkd extends VinhNT_EditInteger {
-    public Passworkd(Context context) {
+public class Password extends VinhNT_EditInteger {
+    public Password(Context context) {
         super(context);
     }
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
@@ -27,5 +27,13 @@ public class Passworkd extends VinhNT_EditInteger {
     @Override
     public String getHintToShow(){
         return "Nhập Password";
+    }
+    @Override
+    public int getMaxLength(){
+        return 9;
+    }
+    @Override
+    public String get_field_name(){
+        return "password";
     }
 }

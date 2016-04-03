@@ -27,8 +27,30 @@ class VinhNT_Mysql{
 	public function dongKetNoi(){
 		$this->mysqli->close();
 	}
-	public function thucThi_SQL($query){
+	public function get_String_Param($array_param){
+		$string_return = '';
+		if(is_null($array_param)){
+		}
+		else{
+			$string_return = $array_param->getStringParam();
+		}
+		return $string_return;
+	}
+	public function query($function_name,$array_param){
+		$param_string = $this->get_String_Param($array_param);
+		$query = 'CALL ' . $function_name . '(' . $param_string . ');';
+		$this->moKetNoi();
 		$res = $this->mysqli->query($query);
+		$this->dongKetNoi();
+		return $res;
+	}
+	public function query_get_data($function_name,$array_param){
+		$res = $this->query($function_name,$array_param);
+		$mangKetQua = $res->fetch_all(MYSQLI_ASSOC);
+		return $mangKetQua;
+	}
+	public function query_update_data($function_name,$array_param){
+		$res = $this->query($function_name,$array_param);
 		return $res;
 	}
 }

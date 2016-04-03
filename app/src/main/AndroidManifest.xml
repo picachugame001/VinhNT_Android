@@ -51,6 +51,10 @@
             </intent-filter>
 
         </activity>
+        <activity android:name="bongda.bangchinh.BangChinh_Form" >
+        </activity>
+        <activity android:name="bongda.dangkycauthu.DangKyCauThu_Form" >
+        </activity>
     </application>
 
 </manifest>

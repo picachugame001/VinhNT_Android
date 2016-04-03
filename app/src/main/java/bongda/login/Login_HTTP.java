@@ -1,13 +1,13 @@
 package bongda.login;
 
-import android.util.Log;
+import android.content.Intent;
 
 import com.android.volley.VolleyError;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import library.activity.Dialog_LoiKetNoi;
+import bongda.bangchinh.BangChinh_Form;
 import library.activity.VinhNT_Activity;
 import library.connect.VinhNT_HTTP;
 
@@ -18,22 +18,13 @@ public class Login_HTTP extends VinhNT_HTTP {
     public Login_HTTP(VinhNT_Activity nguCanh) {
         super(nguCanh);
     }
-    public Login_HTTP(VinhNT_Activity nguCanh,User a,Passworkd b) {
-        this(nguCanh);
-        user = a;
-        password = b;
-    }
-    private User user;
-    private Passworkd password;
-    @Override
-    public void setData() throws JSONException {
-        data = new JSONObject();
-        data.put("function", "login");
-        data.put("user", user.getText());
-        data.put("password", password.getText());
+    public void set_Param(User a, Password b){
+        params.add_Parameter(a);
+        params.add_Parameter(b);
     }
     @Override
     public void onResponse(JSONObject response) {
+        super.onResponse(response);
         boolean ketQua = false;
         try {
             ketQua = response.getBoolean("result");
@@ -43,18 +34,23 @@ public class Login_HTTP extends VinhNT_HTTP {
         }
         if(ketQua){
             //dang nhap thanh cong
+            Intent intent = new Intent(context, BangChinh_Form.class);
+            context.startActivity(intent);
         }
         else{
             //dang nhap that bai
             Login_Error em= new Login_Error(getContext());
             em.show();
         }
+
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Log.d("Ket noi", "Loi roi");
-        Dialog_LoiKetNoi error2 = new Dialog_LoiKetNoi(context);
-        error2.show();
+        super.onErrorResponse(error);
+    }
+    @Override
+    public String get_Function_Name(){
+        return "login";
     }
 }

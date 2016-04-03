@@ -1,6 +1,8 @@
 <?php
 	function __autoload($class_name) {
-		include $class_name . '.php';
+		$fix_name = str_replace('\\','/',$class_name);
+		include('./'. $fix_name . '.php');
+		//include $class_name . '.php';
 	}
 	$request_body = file_get_contents('php://input');//lay body request
 	$ketnoi_SQL = new class_dir\mysql_dir\VinhNT_Mysql();
@@ -18,6 +20,9 @@
 			break;
 		case "login":
 			$ga = new class_dir\function_dir\Func_Login();
+			break;
+		case "dang_ky_cau_thu":
+			$ga = new \class_dir\function_dir\Func_Insert_CauThu();
 			break;
 		default:
 			echo "{'status2':'" . count($inputArray) ."'}";
