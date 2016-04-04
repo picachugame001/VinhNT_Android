@@ -1,8 +1,13 @@
 package bongda.dangkycauthu;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Parcel;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+
+import java.util.List;
 
 import bongda.login.Password;
 import bongda.login.User;
@@ -51,5 +56,12 @@ public class DangKyCauThu_Form extends VinhNT_Activity {
         LinearLayout footer = super.getFooter();
         footer.addView(buton_ok);
         return footer;
+    }
+    @Override
+    public Intent setResultIntentOK(){
+        Intent a = super.setResultIntentOK();
+        a.putExtra(user.get_field_name(),user.getText());
+        //a.put
+        return a;
     }
 }

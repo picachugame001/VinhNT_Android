@@ -1,6 +1,8 @@
 package library.activity;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
@@ -83,5 +85,15 @@ public class VinhNT_Activity extends AppCompatActivity {
     }
     public VinhNT_HTTP getHTTP(){
         return requestHTTP;
+    }
+    public Intent setResultIntentOK(){
+        Intent result = new Intent();
+        setResult(Activity.RESULT_OK,result);
+        return result;
+    }
+    public Intent setResultIntentCancel(){
+        Intent result = new Intent();
+        setResult(Activity.RESULT_CANCELED,result);
+        return result;
     }
 }

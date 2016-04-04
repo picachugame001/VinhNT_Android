@@ -5,14 +5,17 @@ import android.content.Intent;
 import android.view.View;
 
 import bongda.dangkycauthu.DangKyCauThu_Form;
+import library.activity.VinhNT_Activity;
 import library.view.VinhNT_Button;
 
 /**
  * Created by Picachu on 3/19/2016.
  */
 public class Button_DangKi extends VinhNT_Button {
-    public Button_DangKi(Context context) {
+    private Login_Form nguCanh;
+    public Button_DangKi(Login_Form context) {
         super(context);
+        nguCanh = context;
     }
     @Override
     public String getNameButton(){
@@ -22,6 +25,6 @@ public class Button_DangKi extends VinhNT_Button {
     public void onClick(View v) {
         //go to dang ky form
         Intent intent = new Intent(getContext(), DangKyCauThu_Form.class);
-        getContext().startActivity(intent);
+        nguCanh.startActivityForResult(intent,Login_Form.REQUEST_DANGKI);
     }
 }

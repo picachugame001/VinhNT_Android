@@ -9,4 +9,5 @@ import org.json.JSONObject;
 public interface VinhNT_Parameter {
     public void addParam(JSONObject input) throws JSONException;
     public String get_field_name();
+    public String get_string_data();
 }

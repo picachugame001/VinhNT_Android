@@ -33,6 +33,9 @@ public class DangKyCauThu_HTTP extends VinhNT_HTTP {
             if(length == 0) {
                 //Dang ky thanh cong
             }
+            else{
+                //ten id da ton tai
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }

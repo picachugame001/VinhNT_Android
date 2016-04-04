@@ -16,6 +16,7 @@ public class Login_Form extends VinhNT_Activity{
     private Button_Login buttonLogin;
     private Button_DangKi buttonDangKy;
     private Login_HTTP requestLogin;
+    public static final int REQUEST_DANGKI = 2;
     //
     /*public void init(){
         super.init();
