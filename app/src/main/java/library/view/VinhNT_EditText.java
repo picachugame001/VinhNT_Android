@@ -68,7 +68,12 @@ public class VinhNT_EditText extends EditText implements VinhNT_Parameter {
     }
 
     @Override
-    public String get_string_data() {
-        return null;
+    public void getParam(JSONObject input){
+        try {
+            setText(input.getString(get_field_name()));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }

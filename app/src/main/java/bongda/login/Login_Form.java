@@ -1,11 +1,17 @@
 package bongda.login;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import library.activity.VinhNT_Activity;
+import library.activity.VinhNT_Common;
 
 /**
  * Created by Picachu on 3/17/2016.
@@ -66,6 +72,25 @@ public class Login_Form extends VinhNT_Activity{
         buttonDangKy = new Button_DangKi(this);
         footer.addView(buttonDangKy);
         return footer;
+    }
+    @Override
+    protected void onActivityResult (int requestCode, int resultCode, Intent data){
+        switch (requestCode){
+            case REQUEST_DANGKI:
+                if(resultCode == Activity.RESULT_OK){
+                    String returnString = data.getStringExtra(RETURN_OBJECT);
+                    try {
+                        JSONObject returnJSON = new JSONObject(returnString);
+                        user.getParam(returnJSON);
+                        password.getParam(returnJSON);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+                break;
+        }
     }
 
 }

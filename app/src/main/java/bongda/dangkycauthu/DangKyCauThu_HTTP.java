@@ -20,6 +20,10 @@ public class DangKyCauThu_HTTP extends VinhNT_HTTP {
     public DangKyCauThu_HTTP(VinhNT_Activity nguCanh) {
         super(nguCanh);
     }
+    DangKyCauThu_Form form;
+    public void setNguCanh(DangKyCauThu_Form a){
+        form = a;
+    }
     public void setInfo(User a,Password b){
         params.add_Parameter(a);
         params.add_Parameter(b);
@@ -32,9 +36,13 @@ public class DangKyCauThu_HTTP extends VinhNT_HTTP {
             int length = mang_error.length();
             if(length == 0) {
                 //Dang ky thanh cong
+                DangKy_ThanhCong thongBao = new DangKy_ThanhCong(getContext());
+                thongBao.setNguCanh(form);
+                thongBao.show();
             }
             else{
                 //ten id da ton tai
+                
             }
         } catch (JSONException e) {
             e.printStackTrace();

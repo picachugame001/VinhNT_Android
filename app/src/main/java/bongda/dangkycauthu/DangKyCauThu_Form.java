@@ -7,6 +7,8 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import java.util.List;
 
 import bongda.login.Password;
@@ -51,6 +53,7 @@ public class DangKyCauThu_Form extends VinhNT_Activity {
         buton_ok = new Button_OK_DangKy(this);
         dangky_http = new DangKyCauThu_HTTP(this);
         dangky_http.setInfo(user,password);
+        dangky_http.setNguCanh(this);
         buton_ok.setHTTP(dangky_http);
         //
         LinearLayout footer = super.getFooter();
@@ -60,7 +63,10 @@ public class DangKyCauThu_Form extends VinhNT_Activity {
     @Override
     public Intent setResultIntentOK(){
         Intent a = super.setResultIntentOK();
-        a.putExtra(user.get_field_name(),user.getText());
+        JSONObject dataReturn = new JSONObject();
+        user.addParam(dataReturn);
+        password.addParam(dataReturn);
+        a.putExtra(RETURN_OBJECT,dataReturn.toString());
         //a.put
         return a;
     }

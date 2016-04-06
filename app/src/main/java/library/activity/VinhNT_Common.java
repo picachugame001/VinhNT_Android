@@ -32,7 +32,7 @@ public class VinhNT_Common {
     //
     public static TextKeyListener nhapText;
     //
-    public static String link="http://192.168.0.100/bongda/";
+    public static String link="http://192.168.0.101/bongda/";
     public static void init(){
         if(size_10_per == null){
             size_20_per = new LinearLayout.LayoutParams(

@@ -19,6 +19,7 @@ import vinhnt.test01.R;
  * Created by Picachu on 3/15/2016.
  */
 public class VinhNT_Activity extends AppCompatActivity {
+    public final String RETURN_OBJECT = "VinhNT_Return";
     private ImageView icon;
     protected VinhNT_HTTP requestHTTP;
     //private
