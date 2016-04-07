@@ -6,8 +6,7 @@ class BaseInput{
 		return "User";
 	}
 	//public function 
-	function __construct() {
-		global $inputArray;
+	function __construct($inputArray) {
 		$this->value = $inputArray[$this->getFieldName()];
 	}
 	private $value = "B";

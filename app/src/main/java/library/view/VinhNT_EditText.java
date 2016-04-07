@@ -1,12 +1,15 @@
 package library.view;
 
 import android.content.Context;
+import android.text.Editable;
 import android.text.InputFilter;
 import android.util.AttributeSet;
 import android.widget.EditText;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 import library.connect.VinhNT_Parameter;
 
@@ -74,6 +77,18 @@ public class VinhNT_EditText extends EditText implements VinhNT_Parameter {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
+    }
+    @Override
+    public boolean isRequired(){
+        return false;
+    }
+    @Override
+    public ArrayList<Error_Input> checkInput(){
+        ArrayList<Error_Input> reuturn_Error = new ArrayList<Error_Input>();
+        if(isRequired()==true && getText().toString().equals("")){
+            String errorMessage = "trường "+get_field_name()+" là bắt buộc nhập";
+            reuturn_Error.add(new Error_Input("1", "Lỗi bắt buộc nhập", errorMessage));
+        }
+        return reuturn_Error;
     }
 }

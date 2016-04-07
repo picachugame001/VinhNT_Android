@@ -1,3 +1,4 @@
+use bongda;
 DROP  TABLE IF EXISTS CauThu;
 #
 #
@@ -10,9 +11,9 @@ CREATE TABLE  CauThu
 ,	gioi_tinh		BOOLEAN NOT NULL DEFAULT true
 ,	ngay_sinh		DATE 
 ,	dia_chi			NVARCHAR(50)
-,	so_cmnd			NVARCHAR(15)
-,	so_dien_thoai	NVARCHAR(15)
-,	email			NVARCHAR(50)
+,	so_cmnd			VARCHAR(15)
+,	so_dien_thoai	VARCHAR(15)
+,	email			VARCHAR(50)
 ,	PRIMARY KEY(
 		id
 	)

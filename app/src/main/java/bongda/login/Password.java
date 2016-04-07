@@ -36,4 +36,9 @@ public class Password extends VinhNT_EditInteger {
     public String get_field_name(){
         return "password";
     }
+
+    @Override
+    public boolean isRequired(){
+        return true;
+    }
 }

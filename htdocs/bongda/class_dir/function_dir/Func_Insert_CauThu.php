@@ -1,19 +1,18 @@
 <?php
 namespace class_dir\function_dir;
-use class_dir\param_dir as param;
-use class_dir as base;
-use class_dir\mysql_dir as mysql_dir;
 
-class Func_Insert_CauThu extends base\BaseFunction{
+class Func_Insert_CauThu extends \class_dir\BaseFunction{
 	//
 	
 	//public function 
-	function __construct() {
-		$user = new \class_dir\param_dir\In_User();
-		$pass = new \class_dir\param_dir\In_Password();
-		$this->dang_Ky($user,$pass);
+	function __construct($inputArray) {
+		$user = new \class_dir\param_dir\In_User($inputArray);
+		$pass = new \class_dir\param_dir\In_Password($inputArray);
+		$ho_ten_dem = new \class_dir\param_dir\In_Ho_Va_Ten_Dem($inputArray);
+		$ten = new \class_dir\param_dir\In_Ten($inputArray);
+		$this->dang_Ky($user,$pass,$ho_ten_dem,$ten);
 	}
-	public function dang_Ky($user,$pass){
+	public function dang_Ky($user,$pass,$ho_ten_dem,$ten){
 		global $ketnoi_SQL;
 		//
 		$param_array = new \class_dir\param_dir\Array_Param();
@@ -27,7 +26,7 @@ class Func_Insert_CauThu extends base\BaseFunction{
 		//$ketnoi_SQL->dongKetNoi();
 		if(count($mangKetQua)==0){
 			//co the dang ki
-			$this->dang_Ky_Moi($user,$pass);
+			$this->dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten);
 		}
 		else{
 			//khong the dang ki
@@ -36,12 +35,14 @@ class Func_Insert_CauThu extends base\BaseFunction{
 		
 		$result->hien_json();
 	}
-	public function dang_Ky_Moi($user,$pass){
+	public function dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten){
 		global $ketnoi_SQL;
 		//
 		$param_array = new \class_dir\param_dir\Array_Param();
 		$param_array->add_param($user);
 		$param_array->add_param($pass);
+		$param_array->add_param($ho_ten_dem);
+		$param_array->add_param($ten);
 		//
 		//$ketnoi_SQL->moKetNoi();
 		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Insert_CauThu',$param_array);

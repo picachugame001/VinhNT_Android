@@ -1,16 +1,13 @@
 <?php
 namespace class_dir\function_dir;
-use class_dir\param_dir as param;
-use class_dir as base;
-use class_dir\mysql_dir as mysql_dir;
 
-class Func_Login extends base\BaseFunction{
+class Func_Login extends \class_dir\BaseFunction{
 	//
 	
 	//public function 
-	function __construct() {
-		$user = new param\In_User();
-		$pass = new param\In_Password();
+	function __construct($inputArray) {
+		$user = new \class_dir\param_dir\In_User($inputArray);
+		$pass = new \class_dir\param_dir\In_Password($inputArray);
 		$this->checkLogin($user,$pass);
 	}
 	public function checkLogin($user,$pass){

@@ -27,6 +27,7 @@ public class VinhNT_Common {
     public static LinearLayout.LayoutParams size_5_per_HORIZONTAL;
     public static LinearLayout.LayoutParams size_80_per_HORIZONTAL;
     public static LinearLayout.LayoutParams size_10_per_HORIZONTAL;
+    public static ViewGroup.LayoutParams size_VERTICAL;
     //
     public static ShapeDrawable background01;
     //
@@ -80,11 +81,15 @@ public class VinhNT_Common {
                     ,ViewGroup.LayoutParams.WRAP_CONTENT
                     ,0.10f
             );
-            //
+            size_VERTICAL = new ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                    ,ViewGroup.LayoutParams.WRAP_CONTENT
+            );
             background01 = new ShapeDrawable(new RectShape());
             background01.getPaint().setARGB(255,62,182,94);
             //
             nhapText = new TextKeyListener(NONE,true);
+            //
 
         }
 

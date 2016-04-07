@@ -43,4 +43,9 @@ public class User extends VinhNT_EditText {
         return "user";
     }
 
+    @Override
+    public boolean isRequired(){
+        return true;
+    }
+
 }

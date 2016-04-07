@@ -66,13 +66,16 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     }
     public void sendRequest() {
         //
-        queue.start();
+
         try {
-            setData();
-            //
-            JsonObjectRequest a = new JsonObjectRequest(Request.Method.POST, VinhNT_Common.link, data, this, this);
-            a.setTag(tab);
-            queue.add(a);
+            if(params.checkInput()){
+                queue.start();
+                setData();
+                //
+                JsonObjectRequest a = new JsonObjectRequest(Request.Method.POST, VinhNT_Common.link, data, this, this);
+                a.setTag(tab);
+                queue.add(a);
+            }
 
         } catch (Exception e) {
             Log.d("Error", "JSONException");
@@ -99,5 +102,8 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     }
     public String get_Function_Name(){
         return "VinhNT";
+    }
+    public void checkInput(){
+
     }
 }
