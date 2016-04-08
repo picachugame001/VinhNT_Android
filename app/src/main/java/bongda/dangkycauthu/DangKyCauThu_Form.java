@@ -69,7 +69,6 @@ public class DangKyCauThu_Form extends VinhNT_Activity {
 
 
 
-
         //
         ScrollView a = super.getContent();
         a.addView(view);
@@ -80,7 +79,7 @@ public class DangKyCauThu_Form extends VinhNT_Activity {
         //
         buton_ok = new Button_OK_DangKy(this);
         dangky_http = new DangKyCauThu_HTTP(this);
-        dangky_http.setInfo(user,password,ho_ten_dem,ten);
+        dangky_http.setInfo(user,password,ho_ten_dem,ten,gioi_tinh);
         dangky_http.setNguCanh(this);
         buton_ok.setHTTP(dangky_http);
         //

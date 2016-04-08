@@ -6,6 +6,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import bongda.dangkycauthu.gioi_tinh.Gioi_Tinh;
 import bongda.login.Password;
 import bongda.login.User;
 import library.activity.VinhNT_Activity;
@@ -24,11 +25,12 @@ public class DangKyCauThu_HTTP extends VinhNT_HTTP {
     public void setNguCanh(DangKyCauThu_Form a){
         form = a;
     }
-    public void setInfo(User a, Password b, Ho_Va_Ten_Dem c, Ten d){
+    public void setInfo(User a, Password b, Ho_Va_Ten_Dem c, Ten d,Gioi_Tinh e){
         params.add_Parameter(a);
         params.add_Parameter(b);
         params.add_Parameter(c);
         params.add_Parameter(d);
+        params.add_Parameter(e);
     }
     @Override
     public void onResponse(JSONObject response) {
@@ -57,5 +59,11 @@ public class DangKyCauThu_HTTP extends VinhNT_HTTP {
     @Override
     public String get_Function_Name(){
         return "dang_ky_cau_thu";
+    }
+    public String get_Tab(){
+        if (tab == null){
+            tab = "dangkyCauThu";
+        }
+        return tab;
     }
 }

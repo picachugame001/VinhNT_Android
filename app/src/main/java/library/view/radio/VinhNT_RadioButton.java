@@ -29,12 +29,5 @@ public class VinhNT_RadioButton extends RadioButton {
     public VinhNT_RadioButton(Context context) {
         super(context);
     }
-    public VinhNT_RadioButton(Context context,int in_value,String label) {
-        super(context);
-        setLabel(label);
-        setValue(in_value);
-        //
-
-    }
 
 }

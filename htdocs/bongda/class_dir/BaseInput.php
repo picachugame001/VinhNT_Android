@@ -9,10 +9,9 @@ class BaseInput{
 	function __construct($inputArray) {
 		$this->value = $inputArray[$this->getFieldName()];
 	}
-	private $value = "B";
+	protected $value = "B";
 	public function setValue($a){
 		$this->value = $a; 
-		echo "\n" . $this->value; 
 	}
 	public function getValue(){
 		return  $this->value; 

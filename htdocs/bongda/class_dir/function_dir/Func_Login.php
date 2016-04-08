@@ -16,9 +16,7 @@ class Func_Login extends \class_dir\BaseFunction{
 		$param_array = new \class_dir\param_dir\Array_Param();
 		$param_array->add_param($user);
 		//
-		//$ketnoi_SQL->moKetNoi();
 		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Login',$param_array);
-		//$ketnoi_SQL->dongKetNoi();
 		if(count($mangKetQua)==0){
 			$trave["result"] = false;
 		}

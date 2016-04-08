@@ -10,7 +10,7 @@ import library.view.radio.VinhNT_RadioButton;
 public class Gioi_Tinh_Nu extends VinhNT_RadioButton {
     public Gioi_Tinh_Nu(Context context) {
         super(context);
-        setValue(1);
+        setValue(0);
         setLabel("Nữ");
     }
 }

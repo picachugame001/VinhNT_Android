@@ -7,6 +7,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 
 import library.activity.VinhNT_Common;
 import library.connect.VinhNT_Parameter;
@@ -17,21 +20,24 @@ import library.view.Error_Input;
  */
 public class VinhNT_RadioGroup extends RadioGroup implements VinhNT_Parameter {
     private int index;
-    public ArrayList<VinhNT_RadioButton> mang_RadioButton;
+    public HashMap<Integer,VinhNT_RadioButton> mang_RadioButton;
     public VinhNT_RadioGroup(Context context) {
         super(context);
         index = 0;
-        mang_RadioButton = new ArrayList<VinhNT_RadioButton>();
+        mang_RadioButton = new HashMap<Integer,VinhNT_RadioButton>();
     }
     public void add_VinhNT_RadioButton(VinhNT_RadioButton in){
         addView(in,index++,VinhNT_Common.size_VERTICAL);
-        mang_RadioButton.add(in);
+        mang_RadioButton.put(in.getId(), in);
+    }
+    public void set_Default(VinhNT_RadioButton in){
+        check(in.getId());
     }
 
-
     @Override
-    public void addParam(JSONObject input) throws JSONException {
+    public void addParam(JSONObject input)  {
         try{
+            int vai = getCheckedRadioButtonId();
             input.put(get_field_name(),mang_RadioButton.get(getCheckedRadioButtonId ()).getValue());
 
         } catch (JSONException e) {
@@ -48,12 +54,20 @@ public class VinhNT_RadioGroup extends RadioGroup implements VinhNT_Parameter {
     public void getParam(JSONObject input) {
         try {
             //check(input.getInt(get_field_name()));
-            int length = mang_RadioButton.size();
             int value_compare = input.getInt(get_field_name());
-            for(int i=0;i<length;i++){
+            /*for(int i=0;i<length;i++){
                 if(mang_RadioButton.get(i).getValue()==value_compare){
                     check(i);
-                    return;
+                    break;
+                }
+            }*/
+            Iterator it = mang_RadioButton.entrySet().iterator();
+            while (it.hasNext()) {
+                Map.Entry pair = (Map.Entry)it.next();
+                VinhNT_RadioButton comp= (VinhNT_RadioButton)pair.getValue();
+                if(comp.getValue() == value_compare) {
+                    check(comp.getId());
+                    break;
                 }
             }
         } catch (JSONException e) {

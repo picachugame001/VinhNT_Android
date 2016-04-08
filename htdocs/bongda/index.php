@@ -11,12 +11,10 @@
 	}
 	$request_body = file_get_contents('php://input');//lay body request
 	$ketnoi_SQL = new \class_dir\mysql_dir\VinhNT_Mysql();
-	//$request_body = $_POST['json'];
 	$inputArray = json_decode($request_body,true);
 	//
 	//get function name
 	$function = $inputArray['function'];
-	//$function = $_POST["function"];
 	
 	//chose function
 	switch ($function){
@@ -33,8 +31,4 @@
 			echo "{'status2':'" . count($inputArray) ."'}";
 			break;
 	}
-	
-	//if($function == 'login')
-	#dau gi day
-	//$ga = new class_dir\BaseInput();
 ?>

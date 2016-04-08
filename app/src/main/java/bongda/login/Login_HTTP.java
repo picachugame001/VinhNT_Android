@@ -53,4 +53,10 @@ public class Login_HTTP extends VinhNT_HTTP {
     public String get_Function_Name(){
         return "login";
     }
+    public String get_Tab(){
+        if (tab == null){
+            tab = "login";
+        }
+        return tab;
+    }
 }

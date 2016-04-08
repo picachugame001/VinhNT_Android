@@ -10,9 +10,11 @@ class Func_Insert_CauThu extends \class_dir\BaseFunction{
 		$pass = new \class_dir\param_dir\In_Password($inputArray);
 		$ho_ten_dem = new \class_dir\param_dir\In_Ho_Va_Ten_Dem($inputArray);
 		$ten = new \class_dir\param_dir\In_Ten($inputArray);
-		$this->dang_Ky($user,$pass,$ho_ten_dem,$ten);
+		$gioi_tinh = new \class_dir\param_dir\In_Gioi_Tinh($inputArray);
+		$ngay_sinh = new \class_dir\param_dir\In_Ngay_Sinh($inputArray);
+		$this->dang_Ky($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh);
 	}
-	public function dang_Ky($user,$pass,$ho_ten_dem,$ten){
+	public function dang_Ky($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh){
 		global $ketnoi_SQL;
 		//
 		$param_array = new \class_dir\param_dir\Array_Param();
@@ -21,12 +23,10 @@ class Func_Insert_CauThu extends \class_dir\BaseFunction{
 		$result = new \class_dir\mysql_dir\VinhNT_Result();
 		
 		//
-		//$ketnoi_SQL->moKetNoi();
 		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Login',$param_array);
-		//$ketnoi_SQL->dongKetNoi();
 		if(count($mangKetQua)==0){
 			//co the dang ki
-			$this->dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten);
+			$this->dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh);
 		}
 		else{
 			//khong the dang ki
@@ -35,7 +35,7 @@ class Func_Insert_CauThu extends \class_dir\BaseFunction{
 		
 		$result->hien_json();
 	}
-	public function dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten){
+	public function dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh){
 		global $ketnoi_SQL;
 		//
 		$param_array = new \class_dir\param_dir\Array_Param();
@@ -43,9 +43,10 @@ class Func_Insert_CauThu extends \class_dir\BaseFunction{
 		$param_array->add_param($pass);
 		$param_array->add_param($ho_ten_dem);
 		$param_array->add_param($ten);
+		$param_array->add_param($gioi_tinh);
+		$param_array->add_param($ngay_sinh);
+		
 		//
-		//$ketnoi_SQL->moKetNoi();
-		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Insert_CauThu',$param_array);
-		//$ketnoi_SQL->dongKetNoi();
+		$mangKetQua = $ketnoi_SQL->query_update_data('Proc_Insert_CauThu',$param_array);
 	}
 }

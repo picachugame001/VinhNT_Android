@@ -3,6 +3,7 @@ package library.connect;
 import android.util.Log;
 
 import com.android.volley.Cache;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Network;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -38,7 +39,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     private RequestQueue queue;
     protected JSONObject data;
     protected VinhNT_Array_Parameter params;
-    private String tab = "abc1234";
+    protected String tab = "abc1234";
 
     public VinhNT_Activity getContext(){
         return context;
@@ -50,6 +51,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         //
         // Set up the network to use HttpURLConnection as the HTTP client.
         Network network = new BasicNetwork(new HurlStack());
+
         //
         // Instantiate the RequestQueue with the cache and network.
         queue = new RequestQueue(cache, network);
@@ -69,10 +71,13 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
 
         try {
             if(params.checkInput()){
+                queue.stop();
                 queue.start();
                 setData();
                 //
                 JsonObjectRequest a = new JsonObjectRequest(Request.Method.POST, VinhNT_Common.link, data, this, this);
+                a.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
                 a.setTag(tab);
                 queue.add(a);
             }
@@ -90,7 +95,8 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     @Override
     public void onResponse(JSONObject response) {
         Log.d("Ket noi", "OK roi nhe");
-        //queue.cancelAll(tab);
+        queue.cancelAll(get_Tab());
+        queue.stop();
     }
 
     @Override
@@ -98,12 +104,17 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         Log.d("Ket noi", "Loi roi");
         Dialog_LoiKetNoi error2 = new Dialog_LoiKetNoi(context);
         error2.show();
-        //queue.cancelAll(tab);
+        queue.cancelAll(get_Tab());
+        queue.stop();
     }
     public String get_Function_Name(){
+
         return "VinhNT";
     }
-    public void checkInput(){
-
+    public String get_Tab(){
+        if (tab == null){
+            tab = "tab01";
+        }
+        return tab;
     }
 }
