@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import java.net.InetAddress;
+import java.util.Calendar;
+
+import library.view.date_time.VinhNT_Date;
 
 import static android.text.method.TextKeyListener.*;
 import static android.text.method.TextKeyListener.Capitalize.*;
@@ -34,6 +37,8 @@ public class VinhNT_Common {
     public static TextKeyListener nhapText;
     //
     public static String link="http://192.168.0.101/bongda/";
+    //
+    public static VinhNT_Date current_Date;
     public static void init(){
         if(size_10_per == null){
             size_20_per = new LinearLayout.LayoutParams(
@@ -90,7 +95,11 @@ public class VinhNT_Common {
             //
             nhapText = new TextKeyListener(NONE,true);
             //
-
+            Calendar cal = Calendar.getInstance();
+            int current_y = cal.get(Calendar.YEAR);
+            int current_m = cal.get(Calendar.MONTH)+1;
+            int current_d = cal.get(Calendar.DATE);
+            current_Date = new VinhNT_Date(current_y,current_m,current_d);
         }
 
     }

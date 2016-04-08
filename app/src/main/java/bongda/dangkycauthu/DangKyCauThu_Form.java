@@ -1,22 +1,18 @@
 package bongda.dangkycauthu;
 
 import android.content.Intent;
-import android.net.Uri;
-import android.os.Parcel;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
 import org.json.JSONObject;
 
-import java.util.List;
-
 import bongda.dangkycauthu.gioi_tinh.Gioi_Tinh;
 import bongda.login.Password;
 import bongda.login.User;
 import library.activity.VinhNT_Activity;
+import library.view.date_time.VinhNT_EditDate;
+import library.view.date_time.VinhNT_EditDate_EditText;
 
 /**
  * Created by Picachu on 4/3/2016.
@@ -29,6 +25,7 @@ public class DangKyCauThu_Form extends VinhNT_Activity {
     private Ho_Va_Ten_Dem ho_ten_dem;
     private Ten ten;
     private Gioi_Tinh gioi_tinh;
+    private Ngay_Sinh ngay_sinh;
     @Override
     public String getTitle_VinhNT(){
         return "Đăng ký cầu thủ";
@@ -45,13 +42,15 @@ public class DangKyCauThu_Form extends VinhNT_Activity {
         ten_Desc.setText("Tên");
         TextView gioi_Desc = new TextView(this);
         gioi_Desc.setText("Giới tính");
-
+        TextView ngay_sinh_Desc = new TextView(this);
+        ngay_sinh_Desc.setText("Ngày sinh");
         //
         user = new User(this);
         password = new Password(this);
         ho_ten_dem = new Ho_Va_Ten_Dem(this);
         ten = new Ten(this);
         gioi_tinh = new Gioi_Tinh(this);
+        ngay_sinh = new Ngay_Sinh(this);
 
         //
         LinearLayout view = new LinearLayout(this);
@@ -66,8 +65,8 @@ public class DangKyCauThu_Form extends VinhNT_Activity {
         view.addView(ten);
         view.addView(gioi_Desc);
         view.addView(gioi_tinh);
-
-
+        view.addView(ngay_sinh_Desc);
+        view.addView(ngay_sinh);
 
         //
         ScrollView a = super.getContent();
@@ -79,7 +78,7 @@ public class DangKyCauThu_Form extends VinhNT_Activity {
         //
         buton_ok = new Button_OK_DangKy(this);
         dangky_http = new DangKyCauThu_HTTP(this);
-        dangky_http.setInfo(user,password,ho_ten_dem,ten,gioi_tinh);
+        dangky_http.setInfo(user,password,ho_ten_dem,ten,gioi_tinh,ngay_sinh);
         dangky_http.setNguCanh(this);
         buton_ok.setHTTP(dangky_http);
         //

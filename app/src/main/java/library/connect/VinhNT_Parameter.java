@@ -13,7 +13,7 @@ import library.view.Error_Input;
  * Created by Picachu on 4/2/2016.
  */
 public interface VinhNT_Parameter {
-    public void addParam(JSONObject input) throws JSONException;
+    public void addParam(JSONObject input);
     public String get_field_name();
     public void getParam(JSONObject input);
     public boolean isRequired();

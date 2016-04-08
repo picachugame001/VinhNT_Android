@@ -30,7 +30,7 @@ public class VinhNT_Button extends Button implements View.OnClickListener {
        ViewGroup.LayoutParams layoutSize;
        layoutSize = new ViewGroup.LayoutParams(
                             ViewGroup.LayoutParams.WRAP_CONTENT
-                        ,   ViewGroup.LayoutParams.MATCH_PARENT
+                        ,   ViewGroup.LayoutParams.WRAP_CONTENT
                     );
        setLayoutParams(layoutSize);
        setOnClickListener(this);

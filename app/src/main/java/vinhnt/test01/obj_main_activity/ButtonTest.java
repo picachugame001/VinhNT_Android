@@ -1,16 +1,19 @@
 package vinhnt.test01.obj_main_activity;
 
 import android.app.ActionBar;
+import android.app.DatePickerDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuInflater;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.Toolbar;
 
 import library.view.VinhNT_Button;
 import library.view.VinhNT_EditInteger;
+import library.view.date_time.VinhNT_DatePickerDialog;
 import vinhnt.test01.MainActivity;
 import vinhnt.test01.Test;
 
@@ -29,7 +32,7 @@ public class ButtonTest extends VinhNT_Button {
     @Override
     public void onClick(View v) {
         Log.d(TAG, "abc kích button test");
-        Intent cau01 = new Intent(getContext(), Test.class);
+        /*Intent cau01 = new Intent(getContext(), Test.class);
         String data1= dulieu.getText().toString();
         cau01.putExtra("BIEN1", data1);
         getContext().startActivity(cau01);
@@ -37,6 +40,6 @@ public class ButtonTest extends VinhNT_Button {
         // TEST menu
         AppCompatActivity a = (AppCompatActivity)getContext();
         android.support.v7.app.ActionBar actionbar = a.getSupportActionBar();
-        Log.d("gaga",actionbar.getTitle().toString());
+        Log.d("gaga",actionbar.getTitle().toString());*/
     }
 }

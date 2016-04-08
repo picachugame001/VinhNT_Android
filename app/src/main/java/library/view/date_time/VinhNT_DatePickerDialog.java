@@ -7,7 +7,7 @@ import android.content.Context;
  * Created by Picachu on 4/8/2016.
  */
 public class VinhNT_DatePickerDialog extends DatePickerDialog {
-    public VinhNT_DatePickerDialog(Context context, OnDateSetListener callBack, int year, int monthOfYear, int dayOfMonth) {
-        super(context, callBack, year, monthOfYear, dayOfMonth);
+    public VinhNT_DatePickerDialog(Context context, OnDateSetListener callBack, VinhNT_Date default_date) {
+        super(context, callBack, default_date.getYear(),default_date.getMonth(),default_date.getDate());
     }
 }

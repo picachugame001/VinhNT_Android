@@ -25,12 +25,13 @@ public class DangKyCauThu_HTTP extends VinhNT_HTTP {
     public void setNguCanh(DangKyCauThu_Form a){
         form = a;
     }
-    public void setInfo(User a, Password b, Ho_Va_Ten_Dem c, Ten d,Gioi_Tinh e){
+    public void setInfo(User a, Password b, Ho_Va_Ten_Dem c, Ten d,Gioi_Tinh e,Ngay_Sinh f){
         params.add_Parameter(a);
         params.add_Parameter(b);
         params.add_Parameter(c);
         params.add_Parameter(d);
         params.add_Parameter(e);
+        params.add_Parameter(f);
     }
     @Override
     public void onResponse(JSONObject response) {

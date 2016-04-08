@@ -24,11 +24,7 @@ public class VinhNT_Array_Parameter {
     public void set_Parameter(JSONObject json){
         int size = mang_Parameter.size();
         for(int i=0;i<size;i++){
-            try{
-                mang_Parameter.get(i).addParam(json);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
+            mang_Parameter.get(i).addParam(json);
 
         }
     }
@@ -45,6 +41,9 @@ public class VinhNT_Array_Parameter {
         ArrayList<VinhNT_Dialog> mang_Error_Dialog = new ArrayList<VinhNT_Dialog>();
         for(int i=0;i<size;i++){
             ArrayList<Error_Input> a= mang_Parameter.get(i).checkInput();
+			if(a == null){
+				continue;
+			}
             if(!a.isEmpty()){
                 input_is_ok = false;
                 int length_error =a.size();
