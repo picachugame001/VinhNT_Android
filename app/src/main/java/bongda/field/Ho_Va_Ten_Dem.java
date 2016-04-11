@@ -1,4 +1,4 @@
-package bongda.dangkycauthu;
+package bongda.field;
 
 import android.content.Context;
 
@@ -7,23 +7,23 @@ import library.view.VinhNT_EditText;
 /**
  * Created by Picachu on 4/7/2016.
  */
-public class Ten extends VinhNT_EditText {
-    public Ten(Context context) {
+public class Ho_Va_Ten_Dem extends VinhNT_EditText {
+    protected String field_name;
+    public Ho_Va_Ten_Dem(Context context) {
         super(context);
     }
-    protected String field_name;
     @Override
     public String getHintToShow(){
-        return "Nhập tên của bạn";
+        return "Họ và tên đệm của bạn";
     }
     @Override
     public int getMaxLength(){
-        return 20; // max length in text field
+        return 30; // max length in text field
     }
     @Override
     public String get_field_name() {
         if(field_name == null){
-            field_name = "ten";
+            field_name = "ho_ten_dem";
         }
         return field_name;
     }
@@ -32,4 +32,3 @@ public class Ten extends VinhNT_EditText {
         return true;
     }
 }
-

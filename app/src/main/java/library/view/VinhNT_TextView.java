@@ -22,6 +22,10 @@ public class VinhNT_TextView extends android.widget.TextView {
         super(context);
         init();
     }
+    public VinhNT_TextView(Context context,String text_Display){
+        this(context);
+        setText(text_Display);
+    }
 
     public VinhNT_TextView(Context context, AttributeSet attrs) {
         super(context, attrs);

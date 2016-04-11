@@ -4,16 +4,23 @@ import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import bongda.about.VinhNT_About_Form;
 import library.connect.VinhNT_HTTP;
+import library.view.VinhNT_Button;
 import vinhnt.test01.R;
+
 
 /**
  * Created by Picachu on 3/15/2016.
@@ -29,7 +36,8 @@ public class VinhNT_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
+
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         init();
     }
@@ -47,14 +55,22 @@ public class VinhNT_Activity extends AppCompatActivity {
         setContentView(mainView);
         mainView.setOrientation(LinearLayout.VERTICAL);
         //
-        VinhNT_Header header = new VinhNT_Header(this);
-        mainView.addView(header, VinhNT_Common.size_10_per_HORIZONTAL);
-        mainView.addView(getContent(),VinhNT_Common.size_80_per_HORIZONTAL);
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(VinhNT_Common.background01);
+        Resources res = getResources();
+        //actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(false);
+        actionBar.setHomeAsUpIndicator(R.drawable.ball);
+        actionBar.setTitle(getTitle_VinhNT());
+        ScrollView main = new ScrollView(this);
+        main.addView(getContent());
+        mainView.addView(main, VinhNT_Common.size_80_per_HORIZONTAL);
         mainView.addView(getFooter(),VinhNT_Common.size_10_per_HORIZONTAL);
 
     }
-    public ScrollView getContent() {
-        ScrollView a = new ScrollView(this);
+    public LinearLayout getContent() {
+        LinearLayout a = new LinearLayout(this);
+        a.setOrientation(LinearLayout.VERTICAL);
         return a;
     }
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
@@ -62,12 +78,6 @@ public class VinhNT_Activity extends AppCompatActivity {
         LinearLayout a = new LinearLayout(this);
         a.setBackground(VinhNT_Common.background01);
         a.setOrientation(LinearLayout.HORIZONTAL);
-        /*Button buttonTest = new Button(this);
-        buttonTest.setText("TEST");
-        a.addView(buttonTest);
-        Button buttonTest2 = new Button(this);
-        buttonTest2.setText("TEST2");
-        a.addView(buttonTest2);*/
         return a;
     }
     //
@@ -97,4 +107,34 @@ public class VinhNT_Activity extends AppCompatActivity {
         setResult(Activity.RESULT_CANCELED,result);
         return result;
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if(menu == null){
+            Log.d("errror", "menu is null");
+        }
+        if (menu != null) {
+            menu.add("Exit");
+            menu.add("About");
+
+        }
+        return super.onCreateOptionsMenu(menu);
+    }
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        String item_chose= item.getTitle().toString();
+        if(item_chose.equals("Exit")){
+            setResultIntentCancel();
+            finish();
+        }
+        if(item_chose.equals("About")){
+            //go to dang ky form
+            Intent intent = new Intent(this, VinhNT_About_Form.class);
+            startActivity(intent);
+        }
+        return true;
+    }
+    protected boolean temp_method(Menu menu){
+        return super.onCreateOptionsMenu(menu);
+    }
+
 }

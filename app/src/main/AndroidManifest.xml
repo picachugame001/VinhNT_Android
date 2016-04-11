@@ -55,6 +55,11 @@
         </activity>
         <activity android:name="bongda.dangkycauthu.DangKyCauThu_Form" >
         </activity>
+        <activity android:name="bongda.about.VinhNT_About_Form" >
+        </activity>
+        <activity android:name="bongda.quanlythongtin.Quan_Ly_Thong_Tin_Form" >
+        </activity>
+
     </application>
 
 </manifest>

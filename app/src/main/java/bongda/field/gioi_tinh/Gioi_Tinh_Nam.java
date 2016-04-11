@@ -1,4 +1,4 @@
-package bongda.dangkycauthu.gioi_tinh;
+package bongda.field.gioi_tinh;
 
 import android.content.Context;
 

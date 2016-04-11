@@ -8,6 +8,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import bongda.bangchinh.BangChinh_Form;
+import bongda.field.Password;
+import bongda.field.User;
 import library.activity.VinhNT_Activity;
 import library.connect.VinhNT_HTTP;
 

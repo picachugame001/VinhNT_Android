@@ -40,6 +40,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     protected JSONObject data;
     protected VinhNT_Array_Parameter params;
     protected String tab = "abc1234";
+    private Dang_Xu_Ly_Dialog thong_bao_xu_ly;
 
     public VinhNT_Activity getContext(){
         return context;
@@ -73,6 +74,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
             if(params.checkInput()){
                 queue.stop();
                 queue.start();
+                hien_Thi_Thong_Bao_Xu_Ly();
                 setData();
                 //
                 JsonObjectRequest a = new JsonObjectRequest(Request.Method.POST, VinhNT_Common.link, data, this, this);
@@ -97,13 +99,16 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         Log.d("Ket noi", "OK roi nhe");
         queue.cancelAll(get_Tab());
         queue.stop();
+        dong_Thong_Bao_Xu_Ly();
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
         Log.d("Ket noi", "Loi roi");
+        dong_Thong_Bao_Xu_Ly();
         Dialog_LoiKetNoi error2 = new Dialog_LoiKetNoi(context);
         error2.show();
+
         queue.cancelAll(get_Tab());
         queue.stop();
     }
@@ -116,5 +121,14 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
             tab = "tab01";
         }
         return tab;
+    }
+
+    private void hien_Thi_Thong_Bao_Xu_Ly(){
+        thong_bao_xu_ly = new Dang_Xu_Ly_Dialog(getContext());
+        thong_bao_xu_ly.show();
+    }
+    private void dong_Thong_Bao_Xu_Ly(){
+        thong_bao_xu_ly.cancel();
+        thong_bao_xu_ly = null;
     }
 }

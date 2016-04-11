@@ -39,6 +39,7 @@ class VinhNT_Mysql{
 	public function query($function_name,$array_param){
 		$param_string = $this->get_String_Param($array_param);
 		$query = 'CALL ' . $function_name . '(' . $param_string . ')';
+		//var_dump($query);
 		$this->moKetNoi();
 		$res = $this->mysqli->query($query);
 		$this->dongKetNoi();

@@ -33,6 +33,7 @@ public class VinhNT_EditText extends EditText implements VinhNT_Parameter {
             //..
         );
         setMaxLines (1);
+        setSingleLine();
     }
 
     public VinhNT_EditText(Context context) {

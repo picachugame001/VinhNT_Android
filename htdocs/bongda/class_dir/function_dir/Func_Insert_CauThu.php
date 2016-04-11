@@ -12,9 +12,14 @@ class Func_Insert_CauThu extends \class_dir\BaseFunction{
 		$ten = new \class_dir\param_dir\In_Ten($inputArray);
 		$gioi_tinh = new \class_dir\param_dir\In_Gioi_Tinh($inputArray);
 		$ngay_sinh = new \class_dir\param_dir\In_Ngay_Sinh($inputArray);
-		$this->dang_Ky($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh);
+		$dia_chi = new \class_dir\param_dir\In_Dia_Chi($inputArray);
+		$so_cmnd = new \class_dir\param_dir\In_So_CMND($inputArray);
+		$so_dien_thoai = new \class_dir\param_dir\In_So_Dien_Thoai($inputArray);
+		$email = new \class_dir\param_dir\In_Email($inputArray);
+		
+		$this->dang_Ky($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh,$dia_chi,$so_cmnd,$so_dien_thoai,$email);
 	}
-	public function dang_Ky($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh){
+	public function dang_Ky($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh,$dia_chi,$so_cmnd,$so_dien_thoai,$email){
 		global $ketnoi_SQL;
 		//
 		$param_array = new \class_dir\param_dir\Array_Param();
@@ -26,7 +31,7 @@ class Func_Insert_CauThu extends \class_dir\BaseFunction{
 		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Login',$param_array);
 		if(count($mangKetQua)==0){
 			//co the dang ki
-			$this->dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh);
+			$this->dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh,$dia_chi,$so_cmnd,$so_dien_thoai,$email);
 		}
 		else{
 			//khong the dang ki
@@ -35,7 +40,7 @@ class Func_Insert_CauThu extends \class_dir\BaseFunction{
 		
 		$result->hien_json();
 	}
-	public function dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh){
+	public function dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh,$dia_chi,$so_cmnd,$so_dien_thoai,$email){
 		global $ketnoi_SQL;
 		//
 		$param_array = new \class_dir\param_dir\Array_Param();
@@ -45,7 +50,10 @@ class Func_Insert_CauThu extends \class_dir\BaseFunction{
 		$param_array->add_param($ten);
 		$param_array->add_param($gioi_tinh);
 		$param_array->add_param($ngay_sinh);
-		
+		$param_array->add_param($dia_chi);
+		$param_array->add_param($so_cmnd);
+		$param_array->add_param($so_dien_thoai);
+		$param_array->add_param($email);
 		//
 		$mangKetQua = $ketnoi_SQL->query_update_data('Proc_Insert_CauThu',$param_array);
 	}

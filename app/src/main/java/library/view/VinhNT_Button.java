@@ -40,23 +40,6 @@ public class VinhNT_Button extends Button implements View.OnClickListener {
         init();
     }
 
-    public VinhNT_Button(Context context, AttributeSet attrs) {
-        super(context, attrs);
-
-        init();
-
-    }
-
-    public VinhNT_Button(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
-    }
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public VinhNT_Button(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
-
     @Override
     public void onClick(View v) {
 

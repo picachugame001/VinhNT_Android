@@ -10,8 +10,9 @@ import android.widget.TextView;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import bongda.field.Password;
+import bongda.field.User;
 import library.activity.VinhNT_Activity;
-import library.activity.VinhNT_Common;
 
 /**
  * Created by Picachu on 3/17/2016.
@@ -40,7 +41,7 @@ public class Login_Form extends VinhNT_Activity{
         return "Login Form";
     }
     @Override
-    public ScrollView getContent(){
+    public LinearLayout getContent(){
         TextView tenUser = new TextView(this);
         tenUser.setText("User ID:");
         TextView passwordLabel = new TextView(this);
@@ -49,16 +50,13 @@ public class Login_Form extends VinhNT_Activity{
         user = new User(this);
         password = new Password(this);
         //
-        LinearLayout view = new LinearLayout(this);
-        view.setOrientation(LinearLayout.VERTICAL);
+        LinearLayout view = super.getContent();
         view.addView(tenUser);
         view.addView(user);
         view.addView(passwordLabel);
         view.addView(password);
         //
-        ScrollView a = super.getContent();
-        a.addView(view);
-        return a;
+        return view;
     }
     @Override
     public LinearLayout getFooter(){

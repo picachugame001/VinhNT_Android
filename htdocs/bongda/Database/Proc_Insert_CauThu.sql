@@ -8,10 +8,10 @@ CREATE PROCEDURE Proc_Insert_CauThu(
 ,	in_ten				NVARCHAR(20)
 ,	in_gioi_tinh		BOOLEAN
 ,	in_ngay_sinh		DATE
-/*,	in_dia_chi			NVARCHAR(50)
+,	in_dia_chi			NVARCHAR(50)
 ,	in_so_cmnd			NVARCHAR(15)
 ,	in_so_dien_thoai	NVARCHAR(15)
-,	in_email			NVARCHAR(50)*/
+,	in_email			NVARCHAR(50)
 )
 BEGIN
 	INSERT INTO CauThu
@@ -22,22 +22,22 @@ BEGIN
 		,	ten
 		,	gioi_tinh
 		,	ngay_sinh
-		/*,	dia_chi
+		,	dia_chi
 		,	so_cmnd
 		,	so_dien_thoai
-		,	email*/
+		,	email
 	)
 	VALUES(
 		in_id
 	,	in_password
-	,	ien_ho_ten_dem
+	,	in_ho_ten_dem
 	,	in_ten
 	,	in_gioi_tinh
 	,	in_ngay_sinh
-	/*,	in_dia_chi
+	,	in_dia_chi
 	,	in_so_cmnd
 	,	in_so_dien_thoai
-	,	in_email*/
+	,	in_email
 	);
 	
 END
