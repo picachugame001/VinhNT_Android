@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -19,6 +20,7 @@ import android.widget.ScrollView;
 import bongda.about.VinhNT_About_Form;
 import library.connect.VinhNT_HTTP;
 import library.view.VinhNT_Button;
+import library.view.VinhNT_TextView;
 import vinhnt.test01.R;
 
 
@@ -28,7 +30,6 @@ import vinhnt.test01.R;
 public class VinhNT_Activity extends AppCompatActivity {
     public final String RETURN_OBJECT = "VinhNT_Return";
     private ImageView icon;
-    protected VinhNT_HTTP requestHTTP;
     //private
     public VinhNT_Activity(){
         super();
@@ -43,12 +44,10 @@ public class VinhNT_Activity extends AppCompatActivity {
     }
     public void init(){
         //init common
-        VinhNT_Common.init();
+        VinhNT_Common.init(this);
         //
         icon = new ImageView(this);
         icon.setImageResource(R.mipmap.icon_default);
-        //
-        requestHTTP = new VinhNT_HTTP(this);
         //
         //set layout
         LinearLayout mainView = new LinearLayout(this);
@@ -56,12 +55,18 @@ public class VinhNT_Activity extends AppCompatActivity {
         mainView.setOrientation(LinearLayout.VERTICAL);
         //
         ActionBar actionBar = getSupportActionBar();
+        //actionBar.hide();
         actionBar.setBackgroundDrawable(VinhNT_Common.background01);
         Resources res = getResources();
         //actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);
         actionBar.setHomeAsUpIndicator(R.drawable.ball);
         actionBar.setTitle(getTitle_VinhNT());
+        /*VinhNT_Header header = new VinhNT_Header(this);
+        //
+        mainView.addView(   header
+                        ,   VinhNT_Common.size_10_per_HORIZONTAL
+                        );*/
         ScrollView main = new ScrollView(this);
         main.addView(getContent());
         mainView.addView(main, VinhNT_Common.size_80_per_HORIZONTAL);
@@ -76,7 +81,7 @@ public class VinhNT_Activity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public LinearLayout getFooter(){
         LinearLayout a = new LinearLayout(this);
-        a.setBackground(VinhNT_Common.background01);
+        a.setBackground(VinhNT_Common.create_background01());
         a.setOrientation(LinearLayout.HORIZONTAL);
         return a;
     }
@@ -86,16 +91,6 @@ public class VinhNT_Activity extends AppCompatActivity {
     }
     public String getTitle_VinhNT(){
         return "Default title VinhNT";
-    }
-    @Override
-    protected void onStop () {
-        super.onStop();
-        if (requestHTTP != null) {
-            requestHTTP.cancelAll();
-        }
-    }
-    public VinhNT_HTTP getHTTP(){
-        return requestHTTP;
     }
     public Intent setResultIntentOK(){
         Intent result = new Intent();

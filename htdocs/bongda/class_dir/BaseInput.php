@@ -7,7 +7,10 @@ class BaseInput{
 	}
 	//public function 
 	function __construct($inputArray) {
-		$this->value = $inputArray[$this->getFieldName()];
+		if(!is_null($inputArray)){
+			$this->value = $inputArray[$this->getFieldName()];
+		}
+		
 	}
 	protected $value = "B";
 	public function setValue($a){
@@ -18,5 +21,8 @@ class BaseInput{
 	}
 	public function getValueParam(){
 		return  '\'' . $this->value . '\''; 
+	}
+	public function setResult(&$array_result){
+		$array_result[$this->getFieldName()] = $this->getValue();
 	}
 }

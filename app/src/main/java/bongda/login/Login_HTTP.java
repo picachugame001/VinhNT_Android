@@ -11,16 +11,19 @@ import bongda.bangchinh.BangChinh_Form;
 import bongda.field.Password;
 import bongda.field.User;
 import library.activity.VinhNT_Activity;
+import library.activity.VinhNT_Common;
 import library.connect.VinhNT_HTTP;
 
 /**
  * Created by Picachu on 4/2/2016.
  */
 public class Login_HTTP extends VinhNT_HTTP {
+    private User id;
     public Login_HTTP(VinhNT_Activity nguCanh) {
         super(nguCanh);
     }
     public void set_Param(User a, Password b){
+        id = a;
         params.add_Parameter(a);
         params.add_Parameter(b);
     }
@@ -28,6 +31,7 @@ public class Login_HTTP extends VinhNT_HTTP {
     public void onResponse(JSONObject response) {
         super.onResponse(response);
         boolean ketQua = false;
+
         try {
             ketQua = response.getBoolean("result");
         }
@@ -36,6 +40,7 @@ public class Login_HTTP extends VinhNT_HTTP {
         }
         if(ketQua){
             //dang nhap thanh cong
+            VinhNT_Common.set_VinhNT_id(id.getText().toString());
             Intent intent = new Intent(context, BangChinh_Form.class);
             context.startActivity(intent);
         }

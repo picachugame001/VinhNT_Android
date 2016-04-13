@@ -12,6 +12,9 @@ class VinhNT_Result{
 	public function add_Result($result){
 		$this->array_Result[] = $result;
 	}
+	public function add_Result_With_Key($key,$value){
+		$this->array_Result[$key] = $value;
+	}
 	public function add_Error($code,$description){
 		$error = array();
 		$error['code'] = $code;

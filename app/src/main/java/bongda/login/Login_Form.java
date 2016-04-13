@@ -62,7 +62,6 @@ public class Login_Form extends VinhNT_Activity{
     public LinearLayout getFooter(){
         requestLogin = new Login_HTTP(this);
         requestLogin.set_Param(user, password);
-        requestHTTP = requestLogin;
         LinearLayout footer = super.getFooter();
         buttonLogin = new Button_Login(this);
         buttonLogin.setHTTP(requestLogin);

@@ -11,9 +11,11 @@ import library.activity.VinhNT_Activity;
  */
 public class BangChinh_Form extends VinhNT_Activity {
     private  Button_Quan_Ly_Thong_Tin buton_thong_tin;
+    @Override
     public String getTitle_VinhNT(){
         return "Main Board";
     }
+    @Override
     public LinearLayout getContent() {
         //
         buton_thong_tin = new Button_Quan_Ly_Thong_Tin(this);

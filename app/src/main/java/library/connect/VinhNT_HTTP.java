@@ -78,9 +78,9 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
                 setData();
                 //
                 JsonObjectRequest a = new JsonObjectRequest(Request.Method.POST, VinhNT_Common.link, data, this, this);
-                a.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 2, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                a.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 5, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
-                a.setTag(tab);
+                a.setTag(get_Tab());
                 queue.add(a);
             }
 
@@ -91,7 +91,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     }
 
     public void cancelAll() {
-        queue.cancelAll(context.getTitle_VinhNT());
+        queue.cancelAll(get_Tab());
     }
 
     @Override
@@ -113,7 +113,6 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         queue.stop();
     }
     public String get_Function_Name(){
-
         return "VinhNT";
     }
     public String get_Tab(){

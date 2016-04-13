@@ -27,8 +27,14 @@
 		case "dang_ky_cau_thu":
 			$ga = new \class_dir\function_dir\Func_Insert_CauThu($inputArray);
 			break;
+		case "cap_nhat_cau_thu":
+			$ga = new \class_dir\function_dir\Func_Update_CauThu($inputArray);
+			break;
+		case "lay_data_cau_thu":
+			$ga = new \class_dir\function_dir\Func_Init_Data_CauThu($inputArray);
+			break;
 		default:
-			echo "{'status2':'" . count($inputArray) ."'}";
+			echo "{'status':'" . count($inputArray) ."'}";
 			break;
 	}
 ?>

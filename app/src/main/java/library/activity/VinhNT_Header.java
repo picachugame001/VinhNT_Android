@@ -22,15 +22,18 @@ public class VinhNT_Header extends LinearLayout {
     public void init(VinhNT_Activity context){
         setOrientation(HORIZONTAL);
         //
-        setBackground(VinhNT_Common.background01);
+        setBackground(VinhNT_Common.create_background01());
         //
         ImageView icon = context.getIcon();
         String title = context.getTitle_VinhNT();
         TextView titlebar = new TextView(context);
         titlebar.setText(title);
+        Button_Back back_button = new Button_Back(context);
         //
-        addView(icon,VinhNT_Common.size_10_per);
+        addView(icon, VinhNT_Common.size_10_per);
         addView(titlebar,VinhNT_Common.size_70_per);
+        addView(back_button,VinhNT_Common.size_30_per);
+        //
 
     }
 }
