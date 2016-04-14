@@ -59,7 +59,8 @@
         </activity>
         <activity android:name="bongda.quanlythongtin.Quan_Ly_Thong_Tin_Form" >
         </activity>
-
+        <activity android:name="bongda.dangkydoibong.Dang_Ky_Doi_Bong_Form" >
+        </activity>
     </application>
 
 </manifest>

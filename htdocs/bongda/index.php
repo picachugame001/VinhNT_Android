@@ -33,6 +33,10 @@
 		case "lay_data_cau_thu":
 			$ga = new \class_dir\function_dir\Func_Init_Data_CauThu($inputArray);
 			break;
+		case "dang_ky_doi_bong":
+			$ga = new \class_dir\function_dir\Func_Insert_DoiBong($inputArray);
+			break;
+			
 		default:
 			echo "{'status':'" . count($inputArray) ."'}";
 			break;

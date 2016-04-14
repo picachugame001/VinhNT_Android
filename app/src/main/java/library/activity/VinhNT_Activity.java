@@ -56,7 +56,7 @@ public class VinhNT_Activity extends AppCompatActivity {
         //
         ActionBar actionBar = getSupportActionBar();
         //actionBar.hide();
-        actionBar.setBackgroundDrawable(VinhNT_Common.background01);
+        actionBar.setBackgroundDrawable(VinhNT_Common.create_background01());
         Resources res = getResources();
         //actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(false);

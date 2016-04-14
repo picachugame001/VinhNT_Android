@@ -3,6 +3,7 @@ package bongda.bangchinh;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import bongda.field.Ten_Doi_Bong;
 import bongda.login.Button_DangKi;
 import library.activity.VinhNT_Activity;
 
@@ -19,9 +20,11 @@ public class BangChinh_Form extends VinhNT_Activity {
     public LinearLayout getContent() {
         //
         buton_thong_tin = new Button_Quan_Ly_Thong_Tin(this);
+        Button_Dang_Ky_Doi_Bong button_dang_ki_doi_bong = new Button_Dang_Ky_Doi_Bong(this);
         //
         LinearLayout view = super.getContent();
         view.addView(buton_thong_tin);
+        view.addView(button_dang_ki_doi_bong);
         //
         return view;
     }

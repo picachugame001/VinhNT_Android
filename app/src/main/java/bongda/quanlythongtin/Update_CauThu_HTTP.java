@@ -3,6 +3,7 @@ package bongda.quanlythongtin;
 import com.android.volley.VolleyError;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import bongda.field.Dia_Chi;
@@ -84,10 +85,10 @@ public class Update_CauThu_HTTP extends VinhNT_HTTP {
                     }
                 }
             }
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        catch (Exception e){
 
-        }
     }
     @Override
     public void onErrorResponse(VolleyError error) {

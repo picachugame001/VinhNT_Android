@@ -12,4 +12,10 @@ public class VinhNT_Dialog extends AlertDialog{
         // init
         setTitle("Error");
     }
+    public VinhNT_Dialog(Context context,String title,String message) {
+        super(context);
+        // init
+        setTitle(title);
+        setMessage(message);
+    }
 }
