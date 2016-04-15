@@ -47,17 +47,17 @@ public class Update_CauThu_HTTP extends VinhNT_HTTP {
             ,   User_TextView k
     ) {
         super(nguCanh);
-        params.add_Parameter(k);
-        params.add_Parameter(a);
-        params.add_Parameter(b);
-        params.add_Parameter(c);
-        params.add_Parameter(d);
-        params.add_Parameter(e);
-        params.add_Parameter(f);
-        params.add_Parameter(g);
-        params.add_Parameter(h);
-        params.add_Parameter(i);
-        params.add_Parameter(j);
+        add_Parameter(k);
+        add_Parameter(a);
+        add_Parameter(b);
+        add_Parameter(c);
+        add_Parameter(d);
+        add_Parameter(e);
+        add_Parameter(f);
+        add_Parameter(g);
+        add_Parameter(h);
+        add_Parameter(i);
+        add_Parameter(j);
 
     }
     @Override

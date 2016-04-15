@@ -38,12 +38,18 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     protected VinhNT_Activity context;
     private RequestQueue queue;
     protected JSONObject data;
-    protected VinhNT_Array_Parameter params;
+    private VinhNT_Array_Parameter params;
     protected String tab = "abc1234";
     private Dang_Xu_Ly_Dialog thong_bao_xu_ly;
 
     public VinhNT_Activity getContext(){
         return context;
+    }
+    public String get_Function_Name(){
+        return "VinhNT";
+    }
+    protected final void add_Parameter(VinhNT_Parameter input){
+        params.add_Parameter(input);
     }
     public VinhNT_HTTP(VinhNT_Activity nguCanh) {
         context = nguCanh;
@@ -112,9 +118,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         queue.cancelAll(get_Tab());
         queue.stop();
     }
-    public String get_Function_Name(){
-        return "VinhNT";
-    }
+
     public String get_Tab(){
         if (tab == null){
             tab = "tab01";

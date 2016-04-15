@@ -50,7 +50,7 @@ public class Khoi_Tao_Data_HTTP extends VinhNT_HTTP {
             ,   Email           l
     ) {
         super(nguCanh);
-        params.add_Parameter(a);
+        add_Parameter(a);
         old_password     = b  ;
         new_password     = c  ;
         ho_ten_dem       = d  ;

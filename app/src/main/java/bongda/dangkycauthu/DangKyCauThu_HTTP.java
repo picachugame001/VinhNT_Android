@@ -33,16 +33,16 @@ public class DangKyCauThu_HTTP extends VinhNT_HTTP {
         form = a;
     }
     public void setInfo(User a, Password b, Ho_Va_Ten_Dem c, Ten d,Gioi_Tinh e,Ngay_Sinh f,Dia_Chi g,So_CMND h,So_Dien_Thoai i,Email j){
-        params.add_Parameter(a);
-        params.add_Parameter(b);
-        params.add_Parameter(c);
-        params.add_Parameter(d);
-        params.add_Parameter(e);
-        params.add_Parameter(f);
-        params.add_Parameter(g);
-        params.add_Parameter(h);
-        params.add_Parameter(i);
-        params.add_Parameter(j);
+        add_Parameter(a);
+        add_Parameter(b);
+        add_Parameter(c);
+        add_Parameter(d);
+        add_Parameter(e);
+        add_Parameter(f);
+        add_Parameter(g);
+        add_Parameter(h);
+        add_Parameter(i);
+        add_Parameter(j);
     }
     @Override
     public void onResponse(JSONObject response) {

@@ -24,8 +24,8 @@ public class Login_HTTP extends VinhNT_HTTP {
     }
     public void set_Param(User a, Password b){
         id = a;
-        params.add_Parameter(a);
-        params.add_Parameter(b);
+        add_Parameter(a);
+        add_Parameter(b);
     }
     @Override
     public void onResponse(JSONObject response) {

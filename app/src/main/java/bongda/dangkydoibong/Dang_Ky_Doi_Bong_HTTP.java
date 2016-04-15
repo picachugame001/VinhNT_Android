@@ -26,9 +26,9 @@ public class Dang_Ky_Doi_Bong_HTTP extends VinhNT_HTTP {
         ,   Dang_Ky_Doi_Bong_Form d
     ) {
         super(nguCanh);
-        params.add_Parameter(a);
-        params.add_Parameter(b);
-        params.add_Parameter(c);
+        add_Parameter(a);
+        add_Parameter(b);
+        add_Parameter(c);
         form = d;
     }
     @Override

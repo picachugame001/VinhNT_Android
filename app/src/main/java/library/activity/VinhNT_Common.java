@@ -22,10 +22,12 @@ import static android.text.method.TextKeyListener.Capitalize.*;
  */
 public class VinhNT_Common {
     public static LinearLayout.LayoutParams size_10_per;
+    public static LinearLayout.LayoutParams size_15_per;
     public static LinearLayout.LayoutParams size_20_per;
     public static LinearLayout.LayoutParams size_30_per;
     public static LinearLayout.LayoutParams size_70_per;
     public static LinearLayout.LayoutParams size_80_per;
+    public static LinearLayout.LayoutParams size_85_per;
     public static LinearLayout.LayoutParams size_90_per;
     public static LinearLayout.LayoutParams size_100_per;
     public static LinearLayout.LayoutParams size_5_per_HORIZONTAL;
@@ -51,20 +53,26 @@ public class VinhNT_Common {
             //
             density = (int) a.getResources().getDisplayMetrics().density;
             //
-            size_20_per = new LinearLayout.LayoutParams(
-                 ViewGroup.LayoutParams.WRAP_CONTENT
-                ,ViewGroup.LayoutParams.WRAP_CONTENT
-                ,0.2f
-            );
+
             size_10_per = new LinearLayout.LayoutParams(
                  ViewGroup.LayoutParams.WRAP_CONTENT
                 ,ViewGroup.LayoutParams.WRAP_CONTENT
                 ,0.1f
             );
+            size_15_per = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                    ,ViewGroup.LayoutParams.WRAP_CONTENT
+                    ,0.15f
+            );
             size_30_per = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT
                     ,ViewGroup.LayoutParams.WRAP_CONTENT
                     ,0.3f
+            );
+            size_20_per = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                    ,ViewGroup.LayoutParams.WRAP_CONTENT
+                    ,0.2f
             );
             size_70_per = new LinearLayout.LayoutParams(
                  ViewGroup.LayoutParams.WRAP_CONTENT
@@ -75,6 +83,11 @@ public class VinhNT_Common {
                     ViewGroup.LayoutParams.WRAP_CONTENT
                     ,ViewGroup.LayoutParams.WRAP_CONTENT
                     ,0.8f
+            );
+            size_85_per = new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                    ,ViewGroup.LayoutParams.WRAP_CONTENT
+                    ,0.85f
             );
             size_90_per = new LinearLayout.LayoutParams(
                     ViewGroup.LayoutParams.WRAP_CONTENT

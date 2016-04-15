@@ -61,6 +61,8 @@
         </activity>
         <activity android:name="bongda.dangkydoibong.Dang_Ky_Doi_Bong_Form" >
         </activity>
+        <activity android:name="bongda.timkiemdoibong.Tim_Kiem_Doi_Bong_Form" >
+        </activity>
     </application>
 
 </manifest>

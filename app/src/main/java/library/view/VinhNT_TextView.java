@@ -26,20 +26,4 @@ public class VinhNT_TextView extends android.widget.TextView {
         this(context);
         setText(text_Display);
     }
-
-    public VinhNT_TextView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
-
-    public VinhNT_TextView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public VinhNT_TextView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
-        init();
-    }
 }

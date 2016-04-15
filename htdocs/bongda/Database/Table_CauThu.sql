@@ -14,6 +14,7 @@ CREATE TABLE  CauThu
 ,	so_cmnd			VARCHAR(15)
 ,	so_dien_thoai	VARCHAR(15)
 ,	email			VARCHAR(50)
+,	so_doi_bong		TINYINT	NULL DEFAULT 0
 ,	PRIMARY KEY(
 		id
 	)
@@ -59,6 +60,31 @@ INSERT INTO CauThu
 VALUES(
 		'aHvbIsHW7'                                             #  id			
 	,	'363423455'                                             #  password     
+	,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
+	,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
+	,	false                                                   #  gioi_tinh
+	,	'1989-10-23'										    #  ngay_sinh	
+	,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
+	,	'223523554674547'                                       #  so_cmnd		
+	,	'235346346345234'                                       #  so_dien_thoai
+	,	'eUae1KxfW14z0WYPNWXEE3j4qQxfVSropSlz4k5clgo03L9IFo'    #  email
+);
+INSERT INTO CauThu
+(
+		id				
+	,   password        
+	,	ho_ten_dem		
+	,	ten				
+	,	gioi_tinh
+	,	ngay_sinh	
+	,	dia_chi			
+	,	so_cmnd			
+	,	so_dien_thoai	
+	,	email
+)
+VALUES(
+		'abc'                                             		#  id			
+	,	'123'                                             		#  password     
 	,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 	,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
 	,	false                                                   #  gioi_tinh

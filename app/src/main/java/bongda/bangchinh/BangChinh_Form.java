@@ -21,10 +21,12 @@ public class BangChinh_Form extends VinhNT_Activity {
         //
         buton_thong_tin = new Button_Quan_Ly_Thong_Tin(this);
         Button_Dang_Ky_Doi_Bong button_dang_ki_doi_bong = new Button_Dang_Ky_Doi_Bong(this);
+        Button_Tim_Kiem_Doi_Bong button_tim_kiem_doi_bong = new Button_Tim_Kiem_Doi_Bong(this);
         //
         LinearLayout view = super.getContent();
         view.addView(buton_thong_tin);
         view.addView(button_dang_ki_doi_bong);
+        view.addView(button_tim_kiem_doi_bong);
         //
         return view;
     }

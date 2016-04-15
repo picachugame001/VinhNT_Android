@@ -13,18 +13,9 @@ public class VinhNT_LinearLayout extends LinearLayout {
         setOrientation(super.VERTICAL);
     }
 
-    public VinhNT_LinearLayout(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        init();
-    }
-
     public VinhNT_LinearLayout(Context context) {
         super(context);
         init();
     }
 
-    public VinhNT_LinearLayout(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        init();
-    }
 }

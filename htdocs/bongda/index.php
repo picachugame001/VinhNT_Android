@@ -36,7 +36,9 @@
 		case "dang_ky_doi_bong":
 			$ga = new \class_dir\function_dir\Func_Insert_DoiBong($inputArray);
 			break;
-			
+		case "tim_kiem_doi_bong":
+			$ga = new \class_dir\function_dir\Func_Tim_Kiem_Doi_Bong($inputArray);
+			break;
 		default:
 			echo "{'status':'" . count($inputArray) ."'}";
 			break;

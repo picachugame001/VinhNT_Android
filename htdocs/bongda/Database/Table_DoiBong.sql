@@ -14,6 +14,7 @@ CREATE TABLE  DoiBong
 ,	so_tran_thang		INT UNSIGNED NULL DEFAULT 0
 ,	so_tran_hoa			INT UNSIGNED NULL DEFAULT 0
 ,	cap_do				INT UNSIGNED NULL DEFAULT 0
+,	so_thanh_vien		INT UNSIGNED NULL DEFAULT 0
 ,	PRIMARY KEY(
 		ma_doi_bong
 	)
