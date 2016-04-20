@@ -9,10 +9,7 @@ class VinhNT_Result{
 		$this->array_Result = array();
 		$this->array_Error = array();
 	}
-	public function add_Result($result){
-		$this->array_Result[] = $result;
-	}
-	public function add_Result_With_Key($key,$value){
+	public function add_Result($key,$value){
 		$this->array_Result[$key] = $value;
 	}
 	public function add_Error($code,$description){

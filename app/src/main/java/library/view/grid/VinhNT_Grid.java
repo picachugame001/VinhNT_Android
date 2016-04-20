@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import library.connect.VinhNT_Parameter;
 import library.view.Error_Input;
+import library.view.VinhNT_TextView;
 import library.viewgroup.VinhNT_LinearLayout;
 
 /**
@@ -41,9 +42,11 @@ public class VinhNT_Grid<E extends VinhNT_Grid_Row> extends VinhNT_LinearLayout 
         int length = array_Row.size();
         JSONArray JSON_Array = new JSONArray();
         for(int i=0;i<length;i++){
-            JSONObject JSON_Element = new JSONObject();
-            array_Row.get(i).addParam(JSON_Element);
-            JSON_Array.put(JSON_Element);
+            if(array_Row.get(i).is_Row_Get()){
+                JSONObject JSON_Element = new JSONObject();
+                array_Row.get(i).addParam(JSON_Element);
+                JSON_Array.put(JSON_Element);
+            }
         }
         try {
             input.put(get_field_name(),JSON_Array);
@@ -70,6 +73,10 @@ public class VinhNT_Grid<E extends VinhNT_Grid_Row> extends VinhNT_LinearLayout 
                 newRow.getParam(element);
                 add_Row(newRow);
             }
+            if(length == 0 ){
+                VinhNT_TextView ko_tim_thay = new VinhNT_TextView(getContext(),"Không tìm thấy dữ liệu tương ứng");
+                addView(ko_tim_thay);
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
@@ -87,10 +94,28 @@ public class VinhNT_Grid<E extends VinhNT_Grid_Row> extends VinhNT_LinearLayout 
     public boolean isRequired() {
         return false;
     }
+    private boolean check_have_row_get(){
+        int length = array_Row.size();
+        if(length == 0){
+            return false;
+        }
+        for(int i=0;i<length;i++){
+            if(array_Row.get(i).is_Row_Get()){
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public ArrayList<Error_Input> checkInput() {
         ArrayList<Error_Input> error_array = new ArrayList<Error_Input>();
+        if(isRequired()){
+            if(!check_have_row_get()){
+                String errorMessage = "table "+get_field_name()+": bạn phải chọn ít nhất 1 dòng";
+                error_array.add(new Error_Input("1", "Lỗi bắt buộc chọn", errorMessage));
+            }
+        }
         return error_array;
     }
 }

@@ -14,6 +14,7 @@ import com.android.volley.toolbox.DiskBasedCache;
 import com.android.volley.toolbox.HurlStack;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -41,7 +42,9 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     private VinhNT_Array_Parameter params;
     protected String tab = "abc1234";
     private Dang_Xu_Ly_Dialog thong_bao_xu_ly;
-
+    private JSONObject results;
+    private JSONArray errors;
+    //
     public VinhNT_Activity getContext(){
         return context;
     }
@@ -105,6 +108,12 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         Log.d("Ket noi", "OK roi nhe");
         queue.cancelAll(get_Tab());
         queue.stop();
+        try {
+            results = response.getJSONObject("results");
+            errors = response.getJSONArray("errors");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
         dong_Thong_Bao_Xu_Ly();
     }
 
@@ -134,4 +143,11 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         thong_bao_xu_ly.cancel();
         thong_bao_xu_ly = null;
     }
+    protected JSONObject getResults(){
+        return results;
+    }
+    protected JSONArray getErrors(){
+        return errors;
+    }
+
 }

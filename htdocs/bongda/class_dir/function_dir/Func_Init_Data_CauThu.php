@@ -18,7 +18,7 @@ class Func_Init_Data_CauThu extends \class_dir\BaseFunction{
 		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Init_Data_CauThu',$param_array);
 		$ngay = new \class_dir\param_dir\In_Ngay_Sinh($mangKetQua[0]);
 		$ngay->setResult($mangKetQua[0]);
-		$result->add_Result($mangKetQua[0]);
+		$result->add_Result('data_cau_thu',$mangKetQua);
 		$result->hien_json();
 	}
 }

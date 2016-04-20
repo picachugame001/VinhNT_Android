@@ -16,4 +16,8 @@ public class Table_Doi_Bong<Row_Doi_Bong extends VinhNT_Grid_Row> extends VinhNT
     public String get_field_name() {
         return "list_doi_bong";
     }
+    @Override
+    public boolean isRequired() {
+        return true;
+    }
 }

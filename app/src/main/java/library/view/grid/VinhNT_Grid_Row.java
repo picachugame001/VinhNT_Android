@@ -22,13 +22,13 @@ public class VinhNT_Grid_Row extends VinhNT_LinearLayout implements VinhNT_Param
     protected void add_To_Set_Data(VinhNT_Parameter data){
         set_Data.add(data);
     }
-    protected void get_JSONObject(JSONObject output){
+    private void get_JSONObject(JSONObject output){
         int length = set_Data.size();
         for(int i=0;i<length;i++){
             set_Data.get(i).addParam(output);
         }
     }
-    protected void set_JSONObject(JSONObject input){
+    private void set_JSONObject(JSONObject input){
         int length = set_Data.size();
         for(int i=0;i<length;i++){
             set_Data.get(i).getParam(input);
@@ -38,6 +38,10 @@ public class VinhNT_Grid_Row extends VinhNT_LinearLayout implements VinhNT_Param
     public VinhNT_Grid_Row(Context context) {
         super(context);
         set_Data = new ArrayList<VinhNT_Parameter>();
+    }
+
+    protected boolean is_Row_Get(){
+        return true;
     }
 
     @Override

@@ -76,7 +76,8 @@ public class Khoi_Tao_Data_HTTP extends VinhNT_HTTP {
     public void onResponse(JSONObject response) {
         super.onResponse(response);
         try{
-            JSONArray data_array = response.getJSONArray("results");
+            JSONObject results = getResults();
+            JSONArray data_array = results.getJSONArray("data_cau_thu");
             JSONObject data = data_array.getJSONObject(0);
             ho_ten_dem.getParam(data);
             ten.getParam(data);

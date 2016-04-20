@@ -31,7 +31,7 @@ public class Row_Doi_Bong extends VinhNT_Grid_Row {
     private void init_layout(){
         //init textview
         VinhNT_TextView doi_bong_desc = new VinhNT_TextView(getContext(),"Đội bóng ");
-        VinhNT_TextView level_desc = new VinhNT_TextView(getContext(),"Level ");
+        VinhNT_TextView level_desc = new VinhNT_TextView(getContext()," Level ");
         VinhNT_TextView so_thanh_vien_desc = new VinhNT_TextView(getContext(),"Số thành viên ");
         ma_doi_bong = new VinhNT_TextView_Param_Hide(getContext(),"ma_doi_bong");
 
@@ -81,6 +81,10 @@ public class Row_Doi_Bong extends VinhNT_Grid_Row {
         add_To_Set_Data(gioi_tinh);
         add_To_Set_Data(level);
         add_To_Set_Data(so_thanh_vien);
+    }
+    @Override
+    protected boolean is_Row_Get(){
+        return check.isChecked();
     }
 
 }
