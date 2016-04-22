@@ -40,18 +40,44 @@ class VinhNT_Mysql{
 		$param_string = $this->get_String_Param($array_param);
 		$query = 'CALL ' . $function_name . '(' . $param_string . ')';
 		//var_dump($query);
-		$this->moKetNoi();
 		$res = $this->mysqli->query($query);
-		$this->dongKetNoi();
 		return $res;
 	}
 	public function query_get_data($function_name,$array_param){
 		$res = $this->query($function_name,$array_param);
-		$mangKetQua = $res->fetch_all(MYSQLI_ASSOC);
-		return $mangKetQua;
+		if(\is_bool($res)){
+			return $res;
+		}
+		else{
+			$mangKetQua = $res->fetch_all(MYSQLI_ASSOC);
+			return $mangKetQua;
+		}
+		
 	}
 	public function query_update_data($function_name,$array_param){
 		$res = $this->query($function_name,$array_param);
 		return $res;
+	}
+	// this function reuturn boolean value
+	public function checkErrorResult($result){
+		global $return_JSON;
+		if(\is_bool($result)){
+			if($result == false){
+				$return_JSON->add_Error(-1, "exception SQL", 0);
+				return false;
+			}
+			return true;
+		}
+		else{
+			if(\is_array($result)){
+				if(\count($result)>0){
+					if(array_key_exists('error_code', $result[0])){
+						$return_JSON->add_Array_Error($result);
+						return false;
+					}
+				}
+			}
+			return true;
+		}
 	}
 }

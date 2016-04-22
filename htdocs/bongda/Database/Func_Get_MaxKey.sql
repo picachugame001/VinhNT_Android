@@ -1,4 +1,4 @@
-delimiter //
+delimiter $$
 DROP FUNCTION IF EXISTS Func_Get_MaxKey;
 #
 CREATE 
@@ -51,4 +51,4 @@ CREATE
 		END IF;
 		RETURN return_max;
 	END
-//
+$$

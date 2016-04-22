@@ -17,28 +17,7 @@ class Func_Insert_CauThu extends \class_dir\BaseFunction{
 		$so_dien_thoai = new \class_dir\param_dir\In_So_Dien_Thoai($inputArray);
 		$email = new \class_dir\param_dir\In_Email($inputArray);
 		
-		$this->dang_Ky($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh,$dia_chi,$so_cmnd,$so_dien_thoai,$email);
-	}
-	public function dang_Ky($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh,$dia_chi,$so_cmnd,$so_dien_thoai,$email){
-		global $ketnoi_SQL;
-		//
-		$param_array = new \class_dir\param_dir\Array_Param();
-		$param_array->add_param($user);
-		//
-		$result = new \class_dir\mysql_dir\VinhNT_Result();
-		
-		//
-		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Login',$param_array);
-		if(count($mangKetQua)==0){
-			//co the dang ki
-			$this->dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh,$dia_chi,$so_cmnd,$so_dien_thoai,$email);
-		}
-		else{
-			//khong the dang ki
-			$result->add_Error(1,'tai khoan da ton tai');
-		}
-		
-		$result->hien_json();
+		$this->dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh,$dia_chi,$so_cmnd,$so_dien_thoai,$email);
 	}
 	public function dang_Ky_Moi($user,$pass,$ho_ten_dem,$ten,$gioi_tinh,$ngay_sinh,$dia_chi,$so_cmnd,$so_dien_thoai,$email){
 		global $ketnoi_SQL;
@@ -55,6 +34,7 @@ class Func_Insert_CauThu extends \class_dir\BaseFunction{
 		$param_array->add_param($so_dien_thoai);
 		$param_array->add_param($email);
 		//
-		$mangKetQua = $ketnoi_SQL->query_update_data('Proc_Insert_CauThu',$param_array);
+		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Insert_CauThu',$param_array);
+		$ketnoi_SQL->checkErrorResult($mangKetQua);
 	}
 }

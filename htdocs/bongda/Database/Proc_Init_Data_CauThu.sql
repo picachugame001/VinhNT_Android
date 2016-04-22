@@ -1,4 +1,4 @@
-delimiter //
+delimiter $$
 DROP PROCEDURE IF EXISTS Proc_Init_Data_CauThu;
 #
 CREATE PROCEDURE Proc_Init_Data_CauThu(
@@ -19,4 +19,4 @@ BEGIN
 	WHERE
 		id = in_id;
 END
-//
+$$

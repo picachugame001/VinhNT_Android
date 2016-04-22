@@ -31,24 +31,27 @@ public class Login_HTTP extends VinhNT_HTTP {
     public void onResponse(JSONObject response) {
         super.onResponse(response);
         boolean ketQua = false;
+        if(!is_Error_Common()){
+            try {
+                JSONObject trave = getResults();
+                ketQua = trave.getBoolean("result");
+            }
+            catch (JSONException e) {
+                e.printStackTrace();
+            }
+            if(ketQua){
+                //dang nhap thanh cong
+                VinhNT_Common.set_VinhNT_id(id.getText().toString());
+                Intent intent = new Intent(context, BangChinh_Form.class);
+                context.startActivity(intent);
+            }
+            else{
+                //dang nhap that bai
+                Login_Error em= new Login_Error(getContext());
+                em.show();
+            }
+        }
 
-        try {
-            ketQua = response.getBoolean("result");
-        }
-        catch (JSONException e) {
-            e.printStackTrace();
-        }
-        if(ketQua){
-            //dang nhap thanh cong
-            VinhNT_Common.set_VinhNT_id(id.getText().toString());
-            Intent intent = new Intent(context, BangChinh_Form.class);
-            context.startActivity(intent);
-        }
-        else{
-            //dang nhap that bai
-            Login_Error em= new Login_Error(getContext());
-            em.show();
-        }
 
     }
 

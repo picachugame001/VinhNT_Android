@@ -13,6 +13,8 @@
 	//
 	$request_body = file_get_contents('php://input');//lay body request
 	$ketnoi_SQL = new \class_dir\mysql_dir\VinhNT_Mysql();
+	$return_JSON = new \class_dir\mysql_dir\VinhNT_Result();
+	$ketnoi_SQL->moKetNoi();
 	$inputArray = json_decode($request_body,true);
 	//
 	//get function name
@@ -51,4 +53,6 @@
 			echo "{'status':'" . count($inputArray) ."'}";
 			break;
 	}
+	$ketnoi_SQL->dongKetNoi();
+	$return_JSON->hien_json();
 ?>

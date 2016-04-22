@@ -1,4 +1,4 @@
-delimiter //
+delimiter $$
 DROP PROCEDURE IF EXISTS Proc_Check_Ten_DoiBong_Exists;
 #
 CREATE
@@ -17,4 +17,4 @@ CREATE
 			AS ket_qua
 		;
 	END
-//
+$$

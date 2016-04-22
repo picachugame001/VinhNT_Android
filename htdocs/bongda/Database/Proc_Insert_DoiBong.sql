@@ -1,4 +1,4 @@
-delimiter //
+delimiter $$
 DROP PROCEDURE IF EXISTS Proc_Insert_DoiBong;
 #
 CREATE
@@ -44,4 +44,4 @@ CREATE
 			)
 		;
 	END
-//
+$$

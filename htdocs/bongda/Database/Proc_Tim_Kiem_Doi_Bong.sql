@@ -1,4 +1,4 @@
-delimiter //
+delimiter $$
 DROP PROCEDURE IF EXISTS Proc_Tim_Kiem_Doi_Bong;
 #
 CREATE PROCEDURE Proc_Tim_Kiem_Doi_Bong(
@@ -16,6 +16,6 @@ BEGIN
 			ten_doi_bong LIKE CONCAT('%', in_ten_doi_bong, '%')
 	;
 END
-//
+$$
 
 

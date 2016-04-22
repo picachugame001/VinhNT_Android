@@ -12,11 +12,21 @@ class VinhNT_Result{
 	public function add_Result($key,$value){
 		$this->array_Result[$key] = $value;
 	}
-	public function add_Error($code,$description){
+	public function add_Error($code,$description,$sub_code){
 		$error = array();
 		$error['code'] = $code;
 		$error['description'] = $description;
+		$error['sub_code'] = $sub_code;
 		$this->array_Error[] = $error;
+	}
+	public function add_Array_Error($array_error){
+		$length = \count($array_error);
+		for($i=0;$i<$length;$i++){
+			$code = $array_error[$i]['error_code'];
+			$description = $array_error[$i]['description'];
+			$sub_code = $array_error[$i]['sub_code'];
+			$this->add_Error($code,$description,$sub_code);
+		}
 	}
 	public function hien_json(){
 		$json = array();

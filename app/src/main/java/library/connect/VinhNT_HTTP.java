@@ -30,6 +30,7 @@ import java.util.Map;
 import library.activity.Dialog_LoiKetNoi;
 import library.activity.VinhNT_Activity;
 import library.activity.VinhNT_Common;
+import library.view.VinhNT_Dialog;
 
 
 /**
@@ -44,6 +45,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     private Dang_Xu_Ly_Dialog thong_bao_xu_ly;
     private JSONObject results;
     private JSONArray errors;
+    private boolean error_Common; //true: có error; false: không có error
     //
     public VinhNT_Activity getContext(){
         return context;
@@ -72,6 +74,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     }
     public void setData(){
         //
+        error_Common = false;
         data = new JSONObject();
         params.set_Function_Name(data,get_Function_Name());
         params.set_Parameter(data);
@@ -87,7 +90,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
                 setData();
                 //
                 JsonObjectRequest a = new JsonObjectRequest(Request.Method.POST, VinhNT_Common.link, data, this, this);
-                a.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 5, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+                a.setRetryPolicy(new DefaultRetryPolicy(DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 10, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
                 a.setTag(get_Tab());
                 queue.add(a);
@@ -111,6 +114,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         try {
             results = response.getJSONObject("results");
             errors = response.getJSONArray("errors");
+            error_Common = check_Common_Error();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -146,8 +150,48 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     protected JSONObject getResults(){
         return results;
     }
-    protected JSONArray getErrors(){
+    private JSONArray getErrors(){
         return errors;
     }
+    /**
+     * return true: no error
+     * return false: have errror
+     */
+    private boolean check_Common_Error(){
+        int size = get_Error_Count();
+        for(int i=0;i<size;i++){
+            int error_code = get_Error_Code(i);
+            switch (error_code){
+                case -1:
+                    VinhNT_Dialog viewerror = new VinhNT_Dialog(getContext(),"Lỗi DB","DataBase had an exception");
+                    viewerror.show();
+                    return true;
+                    //break;
+                default:
+                    break;
+            }
 
+        }
+        return false;
+    }
+    protected boolean is_Error_Common(){
+        return error_Common;
+    }
+    //  PROCESS ERROR
+    protected int get_Error_Code(int index){
+        JSONArray errorArray = getErrors();
+        try {
+            JSONObject errorObj = errorArray.getJSONObject(index);
+            int code_error =  errorObj.getInt("code");
+            return code_error;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+    protected int get_Error_Count(){
+        JSONArray errorArray = getErrors();
+        return errorArray.length();
+    }
 }
+

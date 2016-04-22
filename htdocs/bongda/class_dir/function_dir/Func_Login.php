@@ -12,22 +12,20 @@ class Func_Login extends \class_dir\BaseFunction{
 	}
 	public function checkLogin($user,$pass){
 		global $ketnoi_SQL;
+		global $return_JSON;
+		
 		//
 		$param_array = new \class_dir\param_dir\Array_Param();
 		$param_array->add_param($user);
 		//
 		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Login',$param_array);
-		if(count($mangKetQua)==0){
-			$trave["result"] = false;
-		}
-		else{
+		if($ketnoi_SQL->checkErrorResult($mangKetQua)){
 			if($mangKetQua[0]["password"] == $pass->getValue()){
-				$trave["result"] = true;
+				$return_JSON->add_Result('result', true);
 			}
 			else{
-				$trave["result"] = false;
+				$return_JSON->add_Result('result', true);
 			}
 		}
-		echo json_encode($trave);
 	}
 }
