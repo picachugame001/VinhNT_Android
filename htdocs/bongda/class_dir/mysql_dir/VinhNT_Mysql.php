@@ -45,11 +45,13 @@ class VinhNT_Mysql{
 	}
 	public function query_get_data($function_name,$array_param){
 		$res = $this->query($function_name,$array_param);
+		//var_dump($res);
 		if(\is_bool($res)){
 			return $res;
 		}
 		else{
 			$mangKetQua = $res->fetch_all(MYSQLI_ASSOC);
+			//var_dump($mangKetQua);
 			return $mangKetQua;
 		}
 		

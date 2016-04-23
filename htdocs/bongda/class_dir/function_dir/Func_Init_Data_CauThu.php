@@ -8,6 +8,7 @@ class Func_Init_Data_CauThu extends \class_dir\BaseFunction{
 	}
 	function get_data_user($user){
 		global $ketnoi_SQL;
+		global $return_JSON;
 		//
 		$param_array = new \class_dir\param_dir\Array_Param();
 		$param_array->add_param($user);
@@ -16,9 +17,8 @@ class Func_Init_Data_CauThu extends \class_dir\BaseFunction{
 		$result = new \class_dir\mysql_dir\VinhNT_Result();
 		//
 		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Init_Data_CauThu',$param_array);
-		$ngay = new \class_dir\param_dir\In_Ngay_Sinh($mangKetQua[0]);
-		$ngay->setResult($mangKetQua[0]);
-		$result->add_Result('data_cau_thu',$mangKetQua);
-		$result->hien_json();
+		if($ketnoi_SQL->checkErrorResult($mangKetQua)){
+			$return_JSON->add_Result('data_cau_thu', $mangKetQua);
+		}
 	}
 }

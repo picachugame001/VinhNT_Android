@@ -7,6 +7,7 @@ class VinhNT_Result{
 	//public function 
 	function __construct() {
 		$this->array_Result = array();
+		$this->array_Result['z']='z';
 		$this->array_Error = array();
 	}
 	public function add_Result($key,$value){

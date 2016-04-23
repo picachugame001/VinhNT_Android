@@ -38,26 +38,20 @@ public class Dang_Ky_Doi_Bong_HTTP extends VinhNT_HTTP {
     @Override
     public void onResponse(JSONObject response) {
         super.onResponse(response);
-        try {
-            JSONArray errors = response.getJSONArray("errors");
-            int i=errors.length();
-            if(i==0){
+        if(!is_Error_Common()) {
+            int lenngError = get_Error_Count();
+            if (lenngError == 0) {
                 Dang_Ky_Doi_Bong_Hoan_Tat_Dialog a = new Dang_Ky_Doi_Bong_Hoan_Tat_Dialog(getContext(),form);a.show();
             }
-            else{
-                for(int j=0;j<i;j++){
-                    JSONObject b = errors.getJSONObject(j);
-                    int error_code = b.getInt("code");
-                    switch (error_code){
-                        case 1:
-                            VinhNT_Dialog viewerror = new VinhNT_Dialog(getContext(),"Lỗi","Tên đội bóng đã tồn tại");
-                            viewerror.show();
-                            break;
-                    }
+            for(int i = 0;i<lenngError;i++){
+                int error_Code = get_Error_Code(i);
+                switch (error_Code) {
+                    case 6:
+                        VinhNT_Dialog loi6 = new VinhNT_Dialog(getContext(),"Lỗi đăng ký","tên đội bóng đã có người đăng ký.");
+                        loi6.show();
+                        break;
                 }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
 }

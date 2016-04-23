@@ -17,6 +17,7 @@ import bongda.field.User;
 import bongda.field.gioi_tinh.Gioi_Tinh;
 import library.activity.VinhNT_Activity;
 import library.connect.VinhNT_HTTP;
+import library.view.VinhNT_Dialog;
 
 /**
  * Created by Picachu on 4/13/2016.
@@ -67,28 +68,33 @@ public class Update_CauThu_HTTP extends VinhNT_HTTP {
     @Override
     public void onResponse(JSONObject response) {
         super.onResponse(response);
-        try {
-            JSONArray errors = response.getJSONArray("errors");
-            int i=errors.length();
-            if(i==0){
+        if(!is_Error_Common()) {
+            int lenngError = get_Error_Count();
+            if (lenngError == 0) {
                 Update_ThanhCong_Dialog a = new Update_ThanhCong_Dialog(getContext());a.show();
             }
-            else{
-                for(int j=0;j<i;j++){
-                    JSONObject b = errors.getJSONObject(j);
-                    int error_code = b.getInt("code");
-                    switch (error_code){
-                        case 1:
-                            MatKhau_Sai_Dialog viewerror = new MatKhau_Sai_Dialog(getContext());
-                            viewerror.show();
+            for(int i = 0;i<lenngError;i++){
+                int error_Code = get_Error_Code(i);
+                switch (error_Code) {
+                    case 2:
+                        VinhNT_Dialog loi2 = new VinhNT_Dialog(getContext(),"Lỗi cập nhật","số chứng minh thư đã có người đăng ký.");
+                        loi2.show();
                         break;
-                    }
+                    case 3:
+                        VinhNT_Dialog loi3 = new VinhNT_Dialog(getContext(),"Lỗi cập nhật","số điện thoại đã có người đăng ký.");
+                        loi3.show();
+                        break;
+                    case 4:
+                        VinhNT_Dialog loi4 = new VinhNT_Dialog(getContext(),"Lỗi cập nhật","email đã có người đăng ký.");
+                        loi4.show();
+                        break;
+                    case 5:
+                        VinhNT_Dialog loi5 = new VinhNT_Dialog(getContext(),"Lỗi cập nhật","mật khẩu cũ chưa chính xác.");
+                        loi5.show();
+                        break;
                 }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
-
     }
     @Override
     public void onErrorResponse(VolleyError error) {

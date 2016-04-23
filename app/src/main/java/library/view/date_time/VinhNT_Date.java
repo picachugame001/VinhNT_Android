@@ -3,6 +3,13 @@ package library.view.date_time;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by Picachu on 4/8/2016.
  */
@@ -16,6 +23,8 @@ public class VinhNT_Date {
         month = m;
         date = d;
     }
+
+
 
     public int getYear() {
         return year;
@@ -59,6 +68,21 @@ public class VinhNT_Date {
             date = input.getInt("date");
         } catch (JSONException e) {
             e.printStackTrace();
+        }
+    }
+    public void  getParam_From_String(String stringDate){
+        DateFormat format = new SimpleDateFormat("yyyy-MM-d", Locale.ENGLISH);
+        try {
+            Calendar date_temp = Calendar.getInstance();
+            date_temp.setTime(format.parse(stringDate));
+            year = date_temp.get(Calendar.YEAR);
+            month= date_temp.get(Calendar.MONTH)+1;
+            date = date_temp.get(Calendar.DATE);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            year = 0;
+            month = 0;
+            date = 0;
         }
     }
 }

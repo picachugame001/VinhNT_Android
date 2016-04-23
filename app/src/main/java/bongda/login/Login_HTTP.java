@@ -13,6 +13,7 @@ import bongda.field.User;
 import library.activity.VinhNT_Activity;
 import library.activity.VinhNT_Common;
 import library.connect.VinhNT_HTTP;
+import library.view.VinhNT_Dialog;
 
 /**
  * Created by Picachu on 4/2/2016.
@@ -30,29 +31,30 @@ public class Login_HTTP extends VinhNT_HTTP {
     @Override
     public void onResponse(JSONObject response) {
         super.onResponse(response);
-        boolean ketQua = false;
         if(!is_Error_Common()){
-            try {
-                JSONObject trave = getResults();
-                ketQua = trave.getBoolean("result");
-            }
-            catch (JSONException e) {
-                e.printStackTrace();
-            }
-            if(ketQua){
+            int lenngError = get_Error_Count();
+            if(lenngError == 0){
                 //dang nhap thanh cong
                 VinhNT_Common.set_VinhNT_id(id.getText().toString());
                 Intent intent = new Intent(context, BangChinh_Form.class);
                 context.startActivity(intent);
             }
-            else{
-                //dang nhap that bai
-                Login_Error em= new Login_Error(getContext());
-                em.show();
+            for(int i = 0;i<lenngError;i++){
+                int error_Code = get_Error_Code(i);
+                switch (error_Code) {
+                    case 1:
+                        //dang nhap that bai
+                        VinhNT_Dialog loi = new VinhNT_Dialog(getContext(),"Lỗi đăng nhập","User nhập vào không tồn tại");
+                        loi.show();
+                        break;
+                    case 2:
+                        //dang nhap that bai
+                        VinhNT_Dialog loi2 = new VinhNT_Dialog(getContext(),"Lỗi đăng nhập","Password nhập vào chưa đúng, xin nhập lại");
+                        loi2.show();
+                        break;
+                }
             }
         }
-
-
     }
 
     @Override

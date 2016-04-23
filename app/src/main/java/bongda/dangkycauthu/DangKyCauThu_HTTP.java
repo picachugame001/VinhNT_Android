@@ -18,6 +18,7 @@ import bongda.field.Ten;
 import bongda.field.User;
 import library.activity.VinhNT_Activity;
 import library.connect.VinhNT_HTTP;
+import library.view.VinhNT_Dialog;
 
 /**
  * Created by Picachu on 4/3/2016.
@@ -47,21 +48,35 @@ public class DangKyCauThu_HTTP extends VinhNT_HTTP {
     @Override
     public void onResponse(JSONObject response) {
         super.onResponse(response);
-        try {
-            JSONArray mang_error = response.getJSONArray("errors");
-            int length = mang_error.length();
-            if(length == 0) {
+        if(!is_Error_Common()) {
+            int lenngError = get_Error_Count();
+            if (lenngError == 0) {
                 //Dang ky thanh cong
                 DangKy_ThanhCong thongBao = new DangKy_ThanhCong(getContext());
                 thongBao.setNguCanh(form);
                 thongBao.show();
             }
-            else{
-                //ten id da ton tai
-                DangKy_TrungID_Msg thongBao = new DangKy_TrungID_Msg(getContext());
+            for(int i = 0;i<lenngError;i++){
+                int error_Code = get_Error_Code(i);
+                switch (error_Code) {
+                    case 1:
+                        VinhNT_Dialog loi = new VinhNT_Dialog(getContext(),"Lỗi đăng ký","Id đăng kí đã tồn tại.");
+                        loi.show();
+                        break;
+                    case 2:
+                        VinhNT_Dialog loi2 = new VinhNT_Dialog(getContext(),"Lỗi đăng ký","số chứng minh thư đã có người đăng ký.");
+                        loi2.show();
+                        break;
+                    case 3:
+                        VinhNT_Dialog loi3 = new VinhNT_Dialog(getContext(),"Lỗi đăng ký","số điện thoại đã có người đăng ký.");
+                        loi3.show();
+                        break;
+                    case 4:
+                        VinhNT_Dialog loi4 = new VinhNT_Dialog(getContext(),"Lỗi đăng ký","email đã có người đăng ký.");
+                        loi4.show();
+                        break;
+                }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
         }
     }
     @Override

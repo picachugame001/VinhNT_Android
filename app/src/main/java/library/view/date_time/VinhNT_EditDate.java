@@ -89,7 +89,15 @@ public class VinhNT_EditDate extends LinearLayout implements VinhNT_Parameter {
     @Override
     public void getParam(JSONObject input) {
         try {
-            data.getParam_From_JSONObject(input.getJSONObject(get_field_name()));
+            Object test_Type = input.get(get_field_name()) ;
+            if (test_Type instanceof JSONObject){
+                data.getParam_From_JSONObject(input.getJSONObject(get_field_name()));
+
+            }
+            if(test_Type instanceof String){
+                data.getParam_From_String(input.getString(get_field_name()));
+
+            }
             show_VinhNTDate_To_EditText();
         } catch (JSONException e) {
             e.printStackTrace();

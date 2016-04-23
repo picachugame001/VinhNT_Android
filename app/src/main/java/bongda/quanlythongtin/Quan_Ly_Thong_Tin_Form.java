@@ -1,5 +1,6 @@
 package bongda.quanlythongtin;
 
+import android.view.View;
 import android.widget.LinearLayout;
 
 import bongda.field.Dia_Chi;
@@ -73,8 +74,9 @@ public class Quan_Ly_Thong_Tin_Form extends VinhNT_Activity {
         view.addView(ho_ten_dem);
         view.addView(ten_Desc);
         view.addView(ten);
-        view.addView(gioi_Desc);
+        //view.addView(gioi_Desc);
         view.addView(gioi_tinh);
+        gioi_tinh.setVisibility(View.GONE);
         view.addView(ngay_sinh_Desc);
         view.addView(ngay_sinh);
         view.addView(dia_chi_Desc);
