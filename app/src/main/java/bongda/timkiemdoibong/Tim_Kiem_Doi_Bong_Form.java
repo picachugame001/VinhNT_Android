@@ -19,7 +19,7 @@ import library.viewgroup.VinhNT_LinearLayout_ChieuNgang;
 public class Tim_Kiem_Doi_Bong_Form extends VinhNT_Activity {
     private Tim_Doi_Bong_HTTP http;
     private Table_Doi_Bong table_doi_bong;
-    private Ten_Doi_Bong timkiem;
+    private TimKiem_TenDoiBong_TextView timkiem;
     private Button_Xin_Gia_Nhap button_xin_gia_nhap;
     private bongda.timkiemdoibong.Button_Tim_Kiem_Doi_Bong button_tim_kiem_doi_bong;
     private VinhNT_TextView_Param_Hide user;
@@ -34,8 +34,8 @@ public class Tim_Kiem_Doi_Bong_Form extends VinhNT_Activity {
         user = new VinhNT_TextView_Param_Hide(this,"user");
         user.setText(VinhNT_Common.get_VinhNT_id());
         table_doi_bong = new Table_Doi_Bong(this,Row_Doi_Bong.class);
-        timkiem = new Ten_Doi_Bong(this);
-        http = new Tim_Doi_Bong_HTTP(this,table_doi_bong,timkiem);
+        timkiem = new TimKiem_TenDoiBong_TextView(this);
+        http = new Tim_Doi_Bong_HTTP(this,table_doi_bong,timkiem,user);
         button_tim_kiem_doi_bong = new bongda.timkiemdoibong.Button_Tim_Kiem_Doi_Bong(this,http);
         gia_nhap_http = new Gia_Nhap_HTTP(this,user,table_doi_bong);
         //row1
@@ -56,7 +56,6 @@ public class Tim_Kiem_Doi_Bong_Form extends VinhNT_Activity {
     @Override
     public void init(){
         super.init();
-        http = new Tim_Doi_Bong_HTTP(this,table_doi_bong,timkiem);
         //http.sendRequest();
 
 

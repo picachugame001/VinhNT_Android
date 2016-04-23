@@ -22,13 +22,11 @@ public class Dang_Ky_Doi_Bong_HTTP extends VinhNT_HTTP {
             VinhNT_Activity nguCanh
         ,   Ten_Doi_Bong a
         ,   User b
-        ,   Gioi_Tinh c
         ,   Dang_Ky_Doi_Bong_Form d
     ) {
         super(nguCanh);
         add_Parameter(a);
         add_Parameter(b);
-        add_Parameter(c);
         form = d;
     }
     @Override
