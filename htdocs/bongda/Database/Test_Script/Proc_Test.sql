@@ -21,7 +21,7 @@ BEGIN
 	
 	/*SELECT @@error_count;
 	COMMIT;*/
-	CALL Proc_Update_CauThu('abc','123','a','b'
+	/*CALL Proc_Update_CauThu('abc','123','a','b'
 		,false
 		,'2014-06-06'
 		,'d'
@@ -30,6 +30,13 @@ BEGIN
 		,'a@b.c'
 
 		);
+	*/
+	DECLARE a NVARCHAR(10);
+	DECLARE b BOOLEAN;
+	DECLARE c INT;
+	SET c = 1 ;
+	CALL Proc_Split_Array_String('LAKJD##FLJWLEJPDS##JFWPERJ##WFLKSJDF##LSJDF##',c,'##',a,b);
+	select c,a,b;
 END;
 $$
 delimiter ;

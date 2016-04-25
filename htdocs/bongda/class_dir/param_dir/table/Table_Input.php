@@ -1,6 +1,8 @@
 <?php
 namespace class_dir\param_dir\table;
 class Table_Input  extends \class_dir\BaseInput {
+	//
+	const delimiter = '#&#';
 	//value is array Row
 	//
 	public function getFieldName(){
@@ -37,7 +39,7 @@ class Table_Input  extends \class_dir\BaseInput {
 		return null;//return new row
 	}
 	
-	//reuturn Array Object
+	//reuturn Array Object nguyễn thành vinh
 	public function getValue(){
 		$array_return = array();
 		$length = count($this->value);
@@ -48,5 +50,17 @@ class Table_Input  extends \class_dir\BaseInput {
 	}
 	public function setValue($a_row){
 		$this->value[] = $this->init_Row($a_row);
+	}
+	private function get_row_delimiter(){
+		return '*R*';//ⓇⒸ
+	}
+	
+	public function getValueParam(){
+		$string_table = '';
+		$length = \count($this->value);
+		for($i=0;$i<$length;$i++){
+			$string_table = $string_table . $this->value[$i]->getValueParam(). $this-> get_row_delimiter();
+		}
+		return '\'' .$string_table . '\'';
 	}
 }

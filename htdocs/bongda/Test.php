@@ -3,8 +3,8 @@ use class_dir\mysql_dir\VinhNT_Result;
 use class_dir\param_dir\Array_Param;
 
 class Test{
-	function __construct(){
-		$this->test02();
+	function __construct($inputArray){
+		$this->test03($inputArray);
 	}
 	public function test01(){
 		$a = array('User' => '2016-04-19 13:52:19');
@@ -24,5 +24,9 @@ class Test{
 			echo 'exception';
 		}
 		var_dump($trave);
+	}
+	public function test03($inputArray){
+		$table = new \class_dir\function_dir\param_xin_gia_nhap\Table_Xin_Gia_Nhap($inputArray);
+		var_dump($table->getValueParam());
 	}
 }

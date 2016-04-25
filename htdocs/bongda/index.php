@@ -44,10 +44,10 @@
 			$ga = new \class_dir\function_dir\Func_Tim_Kiem_Doi_Bong($inputArray);
 			break;
 		case "gia_nhap_doi_bong":
-			$ga = new\class_dir\function_dir\Func_Gia_Nhap_Doi_Bong($inputArray);
+			$ga = new \class_dir\function_dir\Func_Gia_Nhap_Doi_Bong($inputArray);
 			break;
 		case "test":
-			$ga = new \Test();
+			$ga = new \Test($inputArray);
 			break;
 		default:
 			echo "{'status':'" . count($inputArray) ."'}";
