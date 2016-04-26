@@ -8,7 +8,6 @@ class Func_Tim_Kiem_Doi_Bong extends \class_dir\BaseFunction{
 		$this->tim_kiem($ten_doi_bong,$user);
 	}
 	public function tim_kiem($ten_doi_bong,$user){
-		$result = new \class_dir\mysql_dir\VinhNT_Result();
 		global $ketnoi_SQL;
 		global $return_JSON;
 		$param_array = new \class_dir\param_dir\Array_Param();

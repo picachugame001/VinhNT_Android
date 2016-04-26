@@ -26,7 +26,7 @@ class Test{
 		var_dump($trave);
 	}
 	public function test03($inputArray){
-		$table = new \class_dir\function_dir\param_xin_gia_nhap\Table_Xin_Gia_Nhap($inputArray);
-		var_dump($table->getValueParam());
+		global $ketnoi_SQL;
+		$ketnoi_SQL->test();
 	}
 }

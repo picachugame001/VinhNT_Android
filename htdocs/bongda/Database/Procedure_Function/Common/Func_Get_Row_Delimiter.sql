@@ -1,5 +1,5 @@
-delimiter $$
-DROP FUNCTION IF EXISTS Func_Get_Row_Delimiter;
+DELIMITER $$
+DROP FUNCTION IF EXISTS Func_Get_Row_Delimiter; $$
 #
 CREATE
 	FUNCTION Func_Get_Row_Delimiter(
@@ -10,4 +10,4 @@ CREATE
 	END	
 ;
 $$
-delimiter ;
+DELIMITER ;

@@ -1,5 +1,5 @@
-delimiter $$
-DROP PROCEDURE IF EXISTS Proc_Split_Array_String;
+DELIMITER $$
+DROP PROCEDURE IF EXISTS Proc_Split_Array_String;$$
 #
 CREATE
 	PROCEDURE Proc_Split_Array_String(
@@ -32,4 +32,4 @@ CREATE
 	END
 ;
 $$
-delimiter ;
+DELIMITER ;

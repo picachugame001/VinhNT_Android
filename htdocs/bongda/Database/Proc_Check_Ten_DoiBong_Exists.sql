@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS Proc_Check_Ten_DoiBong_Exists;
 #
 CREATE

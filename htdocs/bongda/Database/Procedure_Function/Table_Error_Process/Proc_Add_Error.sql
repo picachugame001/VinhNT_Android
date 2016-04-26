@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS `Proc_Add_Error`;
 #
 CREATE
@@ -24,4 +24,4 @@ CREATE
 	END
 ;
 $$
-delimiter ;
+DELIMITER ;

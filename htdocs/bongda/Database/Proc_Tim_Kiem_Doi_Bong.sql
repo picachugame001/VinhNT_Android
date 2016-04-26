@@ -1,5 +1,5 @@
-delimiter $$
-DROP PROCEDURE IF EXISTS Proc_Tim_Kiem_Doi_Bong;
+DELIMITER $$
+DROP PROCEDURE IF EXISTS Proc_Tim_Kiem_Doi_Bong;$$
 #
 CREATE
 	PROCEDURE Proc_Tim_Kiem_Doi_Bong(
@@ -23,5 +23,6 @@ CREATE
 	END
 ;
 $$
+DELIMITER ;
 
 

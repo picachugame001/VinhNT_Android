@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS Proc_Check_Insert_Id_CauThu;
 #
 CREATE
@@ -20,4 +20,4 @@ CREATE
 	END
 ;
 $$
-delimiter ;
+DELIMITER ;

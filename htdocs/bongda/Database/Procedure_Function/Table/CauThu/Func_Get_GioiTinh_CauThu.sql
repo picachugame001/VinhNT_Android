@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP FUNCTION IF EXISTS Func_Get_GioiTinh_CauThu;
 #
 CREATE
@@ -19,4 +19,4 @@ CREATE
 	END
 ;
 $$
-delimiter ;
+DELIMITER ;

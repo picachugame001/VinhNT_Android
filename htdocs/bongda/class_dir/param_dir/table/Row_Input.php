@@ -32,7 +32,7 @@ class Row_input  extends \class_dir\BaseInput{
 		$string_row = '';
 		$length = \count($this->value);
 		for($i=0;$i<$length;$i++){
-			$string_row = $string_row . $this->value[$i]->getValue() . $this-> get_column_delimiter();
+			$string_row = $string_row . $this->value[$i]->getStringValue() . $this-> get_column_delimiter();
 		}
 		return $string_row;
 	}

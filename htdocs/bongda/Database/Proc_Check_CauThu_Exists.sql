@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS Proc_Check_Cau_Thu_Exists;
 #
 CREATE PROCEDURE Proc_Check_Cau_Thu_Exists(

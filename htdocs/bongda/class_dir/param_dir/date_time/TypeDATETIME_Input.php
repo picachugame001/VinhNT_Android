@@ -16,9 +16,13 @@ class TypeDATETIME_Input extends \class_dir\BaseInput{
 	public function getValueParam(){
 		return  '\'' 
 		. $this->date->getStringValue()
-		.' '
-		. $this->time->getStringValue()
 		. '\'';
+	}
+	public function getStringValue(){
+		return  $this->date->getStringValue()
+			.' '
+			. $this->time->getStringValue()
+		;
 	}
 	public function setResult(&$array_result){
 		$object_temp = array();

@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP FUNCTION IF EXISTS Func_Check_Error;
 #
 CREATE
@@ -15,4 +15,4 @@ CREATE
 	END
 ;
 $$
-delimiter ;
+DELIMITER ;

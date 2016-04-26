@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS Proc_Gia_Nhap_Doi_Bong;
 #
 CREATE
@@ -15,23 +15,7 @@ CREATE
 		
 		SET var_to_date = NOW();
 		#
-		INSERT
-			INTO ERRORS(
-				error_code
-			,	description
-			,	sub_code
-			)	
-			SELECT
-					10						AS	error_code
-				,	'da dang ky'			AS	description
-				,	Table_DoiBongArray.id	AS	sub_code
-				FROM	Table_DoiBongArray
-				LEFT OUTER JOIN	DonGiaNhapDoiBong	ON
-					Table_DoiBongArray.ma_doi_bong = DonGiaNhapDoiBong.ma_doi_bong
-				WHERE
-						DonGiaNhapDoiBong.id = in_id
-					AND	DonGiaNhapDoiBong.ma_doi_bong	IS NOT NULL
-		;
+		CALL Proc_Check_Don_Gia_Nhap(in_id);
 		#
 		IF NOT Func_Check_Error() THEN
 			INSERT

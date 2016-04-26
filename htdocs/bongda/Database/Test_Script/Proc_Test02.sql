@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS Proc_Test02;
 #
 CREATE PROCEDURE Proc_Test02(
@@ -45,4 +45,4 @@ BEGIN
 	;
 END;
 $$
-delimiter ;
+DELIMITER ;

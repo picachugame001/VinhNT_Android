@@ -82,4 +82,21 @@ class VinhNT_Mysql{
 			return true;
 		}
 	}
+	public function test(){
+		//$param_string = $this->get_String_Param($array_param);
+		//$query = 'CALL ' . $function_name . '(' . $param_string . ')';
+		$query='CALL Proc_Get_Don_Gia_Nhap(\'abc\');';
+		//var_dump($query);
+		$res = $this->mysqli->multi_query($query);
+		do {
+			
+		    if ($res = $this->mysqli->store_result()) {
+		        $mangKetQua = $res->fetch_all(MYSQLI_ASSOC);
+				
+				$res->free();
+				var_dump($mangKetQua);
+			//return $mangKetQua;
+		    }
+		} while ($this->mysqli->more_results() && $this->mysqli->next_result());
+	}
 }

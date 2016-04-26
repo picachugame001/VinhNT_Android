@@ -30,6 +30,19 @@ public class VinhNT_Grid<E extends VinhNT_Grid_Row> extends VinhNT_LinearLayout 
         addView(row);
 
     }
+    public E get_Row(int index){
+        int length = array_Row.size();
+        int j = -1;
+        for(int i=0;i<length;i++){
+            if(array_Row.get(i).is_Row_Get()){
+                j++;
+                if(j==index){
+                    return array_Row.get(i);
+                }
+            }
+        }
+        return null;
+    }
     public void clear_All_Row(){
         removeAllViews();
         array_Row.clear();

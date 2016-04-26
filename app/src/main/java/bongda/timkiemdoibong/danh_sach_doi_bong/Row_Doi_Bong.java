@@ -86,5 +86,10 @@ public class Row_Doi_Bong extends VinhNT_Grid_Row {
     protected boolean is_Row_Get(){
         return check.isChecked();
     }
-
+    public VinhNT_TextView_Param_Hide get_ma_doi_bong(){
+        return ma_doi_bong;
+    }
+    public Ten_Doi_Bong_TextView_Hide get_ten_doi_bong(){
+        return ten_doi_bong;
+    }
 }

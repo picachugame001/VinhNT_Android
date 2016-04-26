@@ -25,4 +25,7 @@ class BaseInput{
 	public function setResult(&$array_result){
 		$array_result[$this->getFieldName()] = $this->getValue();
 	}
+	public function getStringValue(){
+		return $this->value; 
+	}
 }

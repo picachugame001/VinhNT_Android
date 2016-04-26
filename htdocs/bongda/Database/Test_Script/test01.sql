@@ -1,8 +1,11 @@
-delimiter $$
+DELIMITER $$
+use bongda;$$
 #set @abc01 = Func_Get_MaxKey('DoiBong3');
 #select @abc01 as show1;
 #SELECT 1 AS A;
-#CALL Proc_Check_Ten_DoiBong_Exists(#	'abc_123'#);
+#CALL Proc_Check_Ten_DoiBong_Exists(
+#	'abc_123'
+#);
 #CALL Proc_Test02();
 /*CALL Proc_Update_CauThu('abc','123','a','b'
 ,false
@@ -22,6 +25,8 @@ delimiter $$
 #CALL Proc_Split_Array_String('LAKJD##FLJWLEJPDS##JFWPERJ##WFLKSJDF##LSJDF##',@c,'##',@a,@b);
 #SELECT Func_Get_Column_Delimiter();
 #CALL Proc_Gia_Nhap_Doi_Bong('abc','bd0000001#C#*R*bd0000003#C#*R*bd0000004#C#*R*');
-CALL Proc_Gia_Nhap_Doi_Bong('abc','bd0000001#C#*R*bd0000003#C#*R*bd0000004#C#*R*');
+#CALL Proc_Duyet_Don_Gia_Nhap('bd0000001','abc1#C#*R*abc2#C#*R*');
+CALL Proc_Get_Don_Gia_Nhap('abc');
+#SELECT * FROM View01;
 $$
-delimiter ;
+DELIMITER ;

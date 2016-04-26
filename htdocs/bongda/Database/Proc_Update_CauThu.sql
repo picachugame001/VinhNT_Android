@@ -1,5 +1,5 @@
-delimiter $$
-DROP PROCEDURE IF EXISTS Proc_Update_CauThu;
+DELIMITER $$
+DROP PROCEDURE IF EXISTS Proc_Update_CauThu;$$
 #
 CREATE
 	PROCEDURE Proc_Update_CauThu(
@@ -63,4 +63,4 @@ CREATE
 	END	
 ;
 $$
-delimiter ;
+DELIMITER ;

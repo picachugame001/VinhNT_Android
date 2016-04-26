@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS Proc_Create_Insert_Table_DoiBongArray;
 #
 CREATE
@@ -57,4 +57,4 @@ CREATE
 	END	
 ;
 $$
-delimiter ;
+DELIMITER ;

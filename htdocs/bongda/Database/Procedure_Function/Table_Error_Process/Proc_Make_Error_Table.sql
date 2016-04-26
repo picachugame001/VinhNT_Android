@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS Proc_Make_Error_Table;
 #
 CREATE
@@ -18,4 +18,4 @@ CREATE
 	END
 ;
 $$
-delimiter ;
+DELIMITER ;

@@ -1,5 +1,5 @@
-delimiter $$
-DROP PROCEDURE IF EXISTS Proc_Insert_DoiBong;
+DELIMITER $$
+DROP PROCEDURE IF EXISTS Proc_Insert_DoiBong;$$
 #
 CREATE
 	PROCEDURE Proc_Insert_DoiBong(
@@ -15,6 +15,7 @@ CREATE
 		#check error
 		#chec ten doi bong
 		CALL Proc_Check_Insert_TenDoiBong_DoiBong(in_ten_doi_bong);
+        CALL Proc_Check_Max_Gia_Nhap_DoiBong(in_id_doi_truong);
 		#
 		IF NOT Func_Check_Error() THEN
 			SET
@@ -50,6 +51,7 @@ CREATE
 				,	0
 				)
 			;
+            CALL Proc_Update_DoiBong_CauThu(in_id_doi_truong,TRUE);
 		END IF;
 		#end content
 		IF Func_Check_Error() THEN
@@ -64,4 +66,4 @@ CREATE
 	END
 ;
 $$
-delimiter ;
+DELIMITER ;

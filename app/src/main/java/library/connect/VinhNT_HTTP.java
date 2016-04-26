@@ -189,6 +189,17 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         }
         return 0;
     }
+    protected int get_Sub_Code(int index){
+        JSONArray errorArray = getErrors();
+        try {
+            JSONObject errorObj = errorArray.getJSONObject(index);
+            int sub_code =  errorObj.getInt("sub_code");
+            return sub_code;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
     protected int get_Error_Count(){
         JSONArray errorArray = getErrors();
         return errorArray.length();

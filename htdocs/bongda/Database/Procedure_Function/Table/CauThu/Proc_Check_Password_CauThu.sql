@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS Proc_Check_Password_CauThu;
 #
 CREATE
@@ -21,4 +21,4 @@ CREATE
 	END
 ;
 $$
-delimiter ;
+DELIMITER ;

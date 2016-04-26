@@ -1,4 +1,4 @@
-delimiter $$
+DELIMITER $$
 DROP PROCEDURE IF EXISTS Proc_Check_Insert_TenDoiBong_DoiBong;
 #
 CREATE
@@ -19,4 +19,4 @@ CREATE
 	END
 ;
 $$
-delimiter ;
+DELIMITER ;
