@@ -53,9 +53,7 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     public String get_Function_Name(){
         return "VinhNT";
     }
-    protected final void add_Parameter(VinhNT_Parameter input){
-        params.add_Parameter(input);
-    }
+
     public VinhNT_HTTP(VinhNT_Activity nguCanh) {
         context = nguCanh;
         // Instantiate the cache
@@ -147,9 +145,6 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
         thong_bao_xu_ly.cancel();
         thong_bao_xu_ly = null;
     }
-    protected JSONObject getResults(){
-        return results;
-    }
     private JSONArray getErrors(){
         return errors;
     }
@@ -177,6 +172,10 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     protected boolean is_Error_Common(){
         return error_Common;
     }
+
+    protected JSONObject getResults(){
+        return results;
+    }
     //  PROCESS ERROR
     protected int get_Error_Code(int index){
         JSONArray errorArray = getErrors();
@@ -203,6 +202,9 @@ public class VinhNT_HTTP implements Response.Listener<JSONObject>,Response.Error
     protected int get_Error_Count(){
         JSONArray errorArray = getErrors();
         return errorArray.length();
+    }
+    protected final void add_Parameter(VinhNT_Parameter input){
+        params.add_Parameter(input);
     }
 }
 

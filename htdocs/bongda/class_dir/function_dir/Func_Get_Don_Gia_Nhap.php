@@ -10,9 +10,15 @@ class Func_Get_Don_Gia_Nhap extends \class_dir\BaseFunction{
 		global $return_JSON;
 		$param_array = new \class_dir\param_dir\Array_Param();
 		$param_array->add_param($user);
-		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Get_Don_Gia_Nhap',$param_array);
-		if($ketnoi_SQL->checkErrorResult($mangKetQua)){
-			$return_JSON->add_Result('list_cau_thu', $mangKetQua);
+		$mangKetQua=array();
+		if($ketnoi_SQL->query_get_multi_data('Proc_Get_Don_Gia_Nhap',$param_array,$mangKetQua)){
+			if(\count($mangKetQua) < 2){
+				$return_JSON->add_Error(13, "procedure lay thieu data", 0);
+			}
+			else{
+				$return_JSON->add_Result('list_cau_thu', $mangKetQua[0]);
+				$return_JSON->add_Result('ma_doi_bong', $mangKetQua[1][0]['ma_doi_bong']);
+			}
 		}
 	}
 	

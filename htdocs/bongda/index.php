@@ -49,6 +49,9 @@
 		case "duyet_don_gia_nhap":
 			$ga = new \class_dir\function_dir\func_duyet_don\Func_Duyet_Don_Gia_Nhap($inputArray);
 			break;
+		case "lay_danh_sach_don_gia_nhap":
+			new \class_dir\function_dir\Func_Get_Don_Gia_Nhap($inputArray);
+			break;
 		case "test":
 			$ga = new \Test($inputArray);
 			break;

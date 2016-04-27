@@ -17,7 +17,7 @@ CREATE
 			SELECT
 					11						AS	error_code
 				,	'da la thanh vien'		AS	description
-				,	Table_DanhSachDuyet.id	AS	sub_code
+				,	Table_DanhSachDuyet.id-1	AS	sub_code
 				FROM	Table_DanhSachDuyet
 				LEFT OUTER JOIN	ThanhVien	ON
 						in_ma_doi_bong = ThanhVien.ma_doi_bong
@@ -38,7 +38,7 @@ CREATE
 			SELECT
 					12								AS	error_code
 				,	'vuot qua so doi gia nhap'		AS	description
-				,	Table_DanhSachDuyet.id			AS	sub_code
+				,	Table_DanhSachDuyet.id-1			AS	sub_code
 				FROM	Table_DanhSachDuyet
 				LEFT OUTER JOIN	CauThu	ON
 								Table_DanhSachDuyet.id_thanh_vien = CauThu.id

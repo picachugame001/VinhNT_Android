@@ -27,6 +27,10 @@ class Test{
 	}
 	public function test03($inputArray){
 		global $ketnoi_SQL;
-		$ketnoi_SQL->test();
+		$user = new \class_dir\param_dir\In_User($inputArray);
+		$param_array = new \class_dir\param_dir\Array_Param();
+		$param_array->add_param($user);
+		//$mangketqua = null;
+		$ga = new \class_dir\function_dir\Func_Get_Don_Gia_Nhap($inputArray);
 	}
 }

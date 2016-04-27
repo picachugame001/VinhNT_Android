@@ -26,6 +26,7 @@ use bongda;$$
 #SELECT Func_Get_Column_Delimiter();
 #CALL Proc_Gia_Nhap_Doi_Bong('abc','bd0000001#C#*R*bd0000003#C#*R*bd0000004#C#*R*');
 #CALL Proc_Duyet_Don_Gia_Nhap('bd0000001','abc1#C#*R*abc2#C#*R*');
+#CALL Proc_Insert_DoiBong('gcc','abc');
 CALL Proc_Get_Don_Gia_Nhap('abc');
 #SELECT * FROM View01;
 $$

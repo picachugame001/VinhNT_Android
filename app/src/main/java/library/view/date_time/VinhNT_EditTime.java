@@ -11,19 +11,17 @@ import java.util.ArrayList;
 import library.activity.VinhNT_Common;
 import library.connect.VinhNT_Parameter;
 import library.view.Error_Input;
-import library.view.VinhNT_EditText;
 
 /**
- * Created by Picachu on 4/8/2016.
+ * Created by Picachu on 4/27/2016.
  */
-public class VinhNT_EditDate extends LinearLayout implements VinhNT_Parameter {
+public class VinhNT_EditTime  extends LinearLayout implements VinhNT_Parameter {
+    private VinhNT_Time data;
+    protected VinhNT_Time time_default;
     //
-    private VinhNT_Date data;
-    protected VinhNT_Date date_default;
-    //
-    private VinhNT_EditDate_EditText chuoiNgay;
-    private VinhNT_EditDate_Button button_Chon;
-    public VinhNT_EditDate(Context context) {
+    private VinhNT_EditTime_EditText chuoiGio;
+    private VinhNT_EditTime_Button button_Chon;
+    public VinhNT_EditTime(Context context) {
         super(context);
         init();
     }
@@ -31,49 +29,49 @@ public class VinhNT_EditDate extends LinearLayout implements VinhNT_Parameter {
         //
         setOrientation(LinearLayout.HORIZONTAL);//phần tử con nằm ngang
         //
-        chuoiNgay = new VinhNT_EditDate_EditText(getContext());
-        button_Chon = new VinhNT_EditDate_Button(getContext(),this);
+        chuoiGio = new VinhNT_EditTime_EditText(getContext());
+        button_Chon = new VinhNT_EditTime_Button(getContext(),this);
         //
-        addView(chuoiNgay, VinhNT_Common.size_90_per);
+        addView(chuoiGio, VinhNT_Common.size_90_per);
         addView(button_Chon, VinhNT_Common.size_10_per);
         //
-        set_VinhNT_Date(getDate_default());
+        set_VinhNT_Time(getTime_default());
     }
-    public VinhNT_Date getDate_default(){
-        if(date_default == null){
-            date_default = VinhNT_Common.current_Date;
+    public VinhNT_Time getTime_default(){
+        if(time_default == null){
+            time_default = VinhNT_Common.current_Time;
         }
-        return date_default;
+        return time_default;
     }
-    public void show_VinhNTDate_To_EditText(){
-        int year = data.getYear();
+    public void show_VinhNTTime_To_EditText(){
+        int hour = data.getHour();
         String display;
-        if(year == 0){
+        if(hour == 24){
             display = "";
         }
         else{
-            int month = data.getMonth();
-            int date = data.getDate();
-            display = date + "/" + month + "/" + year;
+            int minute = data.getMinute();
+            int second = data.getSecond();
+            display = hour + ":" + minute + ":" + second;
         }
-        chuoiNgay.setText(display);
+        chuoiGio.setText(display);
     }
-    public void set_VinhNT_Date(VinhNT_Date date_input){
-        data = date_input;
-        show_VinhNTDate_To_EditText();
+    public void set_VinhNT_Time(VinhNT_Time time_input){
+        data = time_input;
+        show_VinhNTTime_To_EditText();
     }
-    public VinhNT_Date get_Date_Current_Chose(){
+    public VinhNT_Time get_Time_Current_Chose(){
         if(data==null){
-            return VinhNT_Common.current_Date;
+            return VinhNT_Common.current_Time;
         }
-        if(data.getYear() == 0){
-            return VinhNT_Common.current_Date;
+        if(data.getHour() == 24){
+            return VinhNT_Common.current_Time;
         }
         return data;
     }
 
     @Override
-    public void addParam(JSONObject input)  {
+    public void addParam(JSONObject input) {
         try{
             input.put(get_field_name(),data.get_JSONObject());
         } catch (JSONException e) {
@@ -98,7 +96,7 @@ public class VinhNT_EditDate extends LinearLayout implements VinhNT_Parameter {
                 data.getParam_From_String(input.getString(get_field_name()));
 
             }
-            show_VinhNTDate_To_EditText();
+            show_VinhNTTime_To_EditText();
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -110,15 +108,15 @@ public class VinhNT_EditDate extends LinearLayout implements VinhNT_Parameter {
     }
 
     @Override
-    public ArrayList<Error_Input> checkInput(){
+    public ArrayList<Error_Input> checkInput() {
         ArrayList<Error_Input> reuturn_Error = new ArrayList<Error_Input>();
-        if(isRequired()==true && data.getYear() == 0){
+        if(isRequired()==true && data.getHour() == 24){
             String errorMessage = "trường "+get_field_name()+" là bắt buộc nhập";
             reuturn_Error.add(new Error_Input("1", "Lỗi bắt buộc nhập", errorMessage));
         }
         return reuturn_Error;
     }
     public String getTextValue(){
-        return chuoiNgay.getText().toString();
+        return chuoiGio.getText().toString();
     }
 }

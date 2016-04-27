@@ -16,6 +16,7 @@ CREATE
 		#chec ten doi bong
 		CALL Proc_Check_Insert_TenDoiBong_DoiBong(in_ten_doi_bong);
         CALL Proc_Check_Max_Gia_Nhap_DoiBong(in_id_doi_truong);
+        CALL Proc_Check_Insert_New_DoiBong(in_id_doi_truong);
 		#
 		IF NOT Func_Check_Error() THEN
 			SET

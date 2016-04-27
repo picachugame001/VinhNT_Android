@@ -27,7 +27,7 @@ class VinhNT_Mysql{
 	public function dongKetNoi(){
 		$this->mysqli->close();
 	}
-	public function get_String_Param($array_param){
+	private function get_String_Param($array_param){
 		$string_return = '';
 		if(is_null($array_param)){
 		}
@@ -36,9 +36,13 @@ class VinhNT_Mysql{
 		}
 		return $string_return;
 	}
-	public function query($function_name,$array_param){
+	private function get_query_string($function_name,$array_param){
 		$param_string = $this->get_String_Param($array_param);
 		$query = 'CALL ' . $function_name . '(' . $param_string . ')';
+		return $query;
+	}
+	public function query($function_name,$array_param){
+		$query = $this->get_query_string($function_name, $array_param);
 		//var_dump($query);
 		$res = $this->mysqli->query($query);
 		return $res;
@@ -98,5 +102,52 @@ class VinhNT_Mysql{
 			//return $mangKetQua;
 		    }
 		} while ($this->mysqli->more_results() && $this->mysqli->next_result());
+	}
+	public function multi_query($function_name,$array_param){
+		$param_string = $this->get_String_Param($array_param);
+		$query = 'CALL ' . $function_name . '(' . $param_string . ')';
+		//var_dump($query);
+		$res = $this->mysqli->multi_query($query);
+		return $res;
+	}
+	//use
+	//if($obj->query_get_multi_data($function_name,$array_param,$result)){
+	//	$result[n]
+	//}
+	// this function return boolean
+	public function query_get_multi_data($function_name,$array_param,&$mangKetQua){
+		global $return_JSON;
+		$return_var = true;
+		$query = $this->get_query_string($function_name, $array_param);
+		//var_dump($query);
+		if(!isset($mangKetQua)){
+			$mangKetQua = array(); 
+			echo 'test 01';
+		}
+		if(!$this->mysqli->multi_query($query)){
+			$return_JSON->add_Error(-1, $this->mysqli->error, $this->mysqli->errno);
+			$return_var = false;
+		}
+		else{
+			do {
+				if ($res = $this->mysqli->store_result()) {
+					$mangTam = $res->fetch_all(MYSQLI_ASSOC);
+					if($this->checkErrorResult($mangTam)){
+						$mangKetQua[] = $mangTam;
+					}
+					else{
+						$return_var = false;
+					}
+					$res->free();
+				} else {
+					if ($this->mysqli->errno) {
+						$return_JSON->add_Error(-1, $this->mysqli->error, $this->mysqli->errno);
+						$return_var = false;
+					}
+				}
+			} while ($this->mysqli->more_results() && $this->mysqli->next_result());
+		}
+		return $return_var;
+		
 	}
 }

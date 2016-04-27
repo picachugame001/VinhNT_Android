@@ -16,7 +16,7 @@ CREATE
 			SELECT
 					11						AS	error_code
 				,	'da la thanh vien'		AS	description
-				,	Table_DoiBongArray.id	AS	sub_code
+				,	Table_DoiBongArray.id-1	AS	sub_code
 				FROM	Table_DoiBongArray
 				LEFT OUTER JOIN	ThanhVien	ON
 						Table_DoiBongArray.ma_doi_bong = ThanhVien.ma_doi_bong
@@ -38,7 +38,7 @@ CREATE
 			SELECT
 					10						AS	error_code
 				,	'da dang ky'			AS	description
-				,	Table_DoiBongArray.id	AS	sub_code
+				,	Table_DoiBongArray.id-1	AS	sub_code
 				FROM	Table_DoiBongArray
 				LEFT OUTER JOIN	DonGiaNhapDoiBong	ON
 						Table_DoiBongArray.ma_doi_bong = DonGiaNhapDoiBong.ma_doi_bong

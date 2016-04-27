@@ -42,7 +42,7 @@ public class VinhNT_Activity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         init();
     }
-    public void init(){
+    protected void init(){
         //init common
         VinhNT_Common.init(this);
         //
@@ -73,7 +73,7 @@ public class VinhNT_Activity extends AppCompatActivity {
         mainView.addView(getFooter(),VinhNT_Common.size_10_per_HORIZONTAL);
 
     }
-    public LinearLayout getContent() {
+    protected LinearLayout getContent() {
         LinearLayout a = new LinearLayout(this);
         a.setOrientation(LinearLayout.VERTICAL);
         return a;

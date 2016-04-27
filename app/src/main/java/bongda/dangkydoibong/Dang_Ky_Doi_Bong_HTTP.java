@@ -48,6 +48,10 @@ public class Dang_Ky_Doi_Bong_HTTP extends VinhNT_HTTP {
                         VinhNT_Dialog loi6 = new VinhNT_Dialog(getContext(),"Lỗi đăng ký","tên đội bóng đã có người đăng ký.");
                         loi6.show();
                         break;
+                    case 14:
+                        VinhNT_Dialog loi14 = new VinhNT_Dialog(getContext(),"Lỗi đăng ký","Bạn đã đăng ký một đội bóng.");
+                        loi14.show();
+                        break;
                 }
             }
         }

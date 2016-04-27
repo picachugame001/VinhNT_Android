@@ -1,5 +1,5 @@
 DELIMITER $$
-DROP PROCEDURE IF EXISTS Proc_Check_Insert_TenDoiBong_DoiBong;
+DROP PROCEDURE IF EXISTS Proc_Check_Insert_TenDoiBong_DoiBong;$$
 #
 CREATE
 	PROCEDURE  Proc_Check_Insert_TenDoiBong_DoiBong(
