@@ -52,3 +52,4 @@ CREATE
 		RETURN return_max;
 	END
 $$
+DELIMITER ;

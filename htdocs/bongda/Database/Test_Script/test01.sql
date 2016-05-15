@@ -27,7 +27,19 @@ use bongda;$$
 #CALL Proc_Gia_Nhap_Doi_Bong('abc','bd0000001#C#*R*bd0000003#C#*R*bd0000004#C#*R*');
 #CALL Proc_Duyet_Don_Gia_Nhap('bd0000001','abc1#C#*R*abc2#C#*R*');
 #CALL Proc_Insert_DoiBong('gcc','abc');
-CALL Proc_Get_Don_Gia_Nhap('abc');
+#CALL Proc_Get_Don_Gia_Nhap('abc');
+#SET @ma_doi_bong = Func_get_ma_doi_bong_from_di_doi_truong('abc1');$$
+#SELECT @ma_doi_bong;$$
+
+CALL Proc_Thach_Dau_Tat_Ca(
+		'ct0000001'
+	,	'sb0000001'
+	,	'2016-05-30'
+	,	'16:00:00'
+	,	'17:00:00'
+	,	'abc'
+
+);$$
 #SELECT * FROM View01;
 $$
 DELIMITER ;

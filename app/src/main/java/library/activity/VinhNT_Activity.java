@@ -22,8 +22,6 @@ import library.connect.VinhNT_HTTP;
 import library.view.VinhNT_Button;
 import library.view.VinhNT_TextView;
 import vinhnt.test01.R;
-
-
 /**
  * Created by Picachu on 3/15/2016.
  */

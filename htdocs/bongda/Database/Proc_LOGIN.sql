@@ -32,6 +32,9 @@ CREATE
 				CALL Proc_Add_Error(2,'mat khau khong ton tai',0);
 			END IF;
 		END IF;
+        IF NOT Func_Check_Error() THEN
+			NO LA CAU THU
+        END IF;
 		#
 		IF Func_Check_Error() THEN
 			SELECT

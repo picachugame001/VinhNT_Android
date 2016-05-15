@@ -1,5 +1,5 @@
 DELIMITER $$
-DROP PROCEDURE IF EXISTS Proc_Insert_CauThu;
+DROP PROCEDURE IF EXISTS Proc_Insert_CauThu;$$
 #
 CREATE
 	PROCEDURE Proc_Insert_CauThu(
@@ -66,3 +66,4 @@ CREATE
 	END
 ;
 $$
+DELIMITER ;

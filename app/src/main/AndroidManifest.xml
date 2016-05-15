@@ -64,6 +64,7 @@
         <activity android:name="bongda.timkiemdoibong.Tim_Kiem_Doi_Bong_Form" >
         </activity>
         <!--Duyet_Don_Gia_Nhap_Form-->
+        <!--Duyet_Don_Gia_Nhap_Form sdfw-->
         <activity android:name="bongda.duyetdongianhap.Duyet_Don_Gia_Nhap_Form" >
         </activity>
     </application>

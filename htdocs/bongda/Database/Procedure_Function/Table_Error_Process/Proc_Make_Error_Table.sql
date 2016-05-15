@@ -11,7 +11,7 @@ CREATE
 		CREATE TEMPORARY TABLE IF NOT EXISTS ERRORS
 			(
 				error_code		INT	NULL DEFAULT 0
-			,	description NVARCHAR(50) NULL DEFAULT ''
+			,	description NVARCHAR(50) NULL DEFAULT '' COLLATE utf8_unicode_ci
 			,	sub_code	INT NULL DEFAULT 0
 			)
 		;

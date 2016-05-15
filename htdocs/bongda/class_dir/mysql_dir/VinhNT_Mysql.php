@@ -22,6 +22,13 @@ class VinhNT_Mysql{
 		if ($this->mysqli->connect_errno) {
 			$this->errorFlag = -1; //error 
 		}
+		$this->mysqli->query("SET NAMES utf8");
+
+		// Will not affect $mysqli->real_escape_string();
+		$this->mysqli->query("SET CHARACTER SET utf8");
+		
+		// But, this will affect $mysqli->real_escape_string();
+		$this->mysqli->set_charset('utf8');
 		return $this->errorFlag;
 	}
 	public function dongKetNoi(){
@@ -121,8 +128,7 @@ class VinhNT_Mysql{
 		$query = $this->get_query_string($function_name, $array_param);
 		//var_dump($query);
 		if(!isset($mangKetQua)){
-			$mangKetQua = array(); 
-			echo 'test 01';
+			$mangKetQua = array();
 		}
 		if(!$this->mysqli->multi_query($query)){
 			$return_JSON->add_Error(-1, $this->mysqli->error, $this->mysqli->errno);
@@ -132,6 +138,7 @@ class VinhNT_Mysql{
 			do {
 				if ($res = $this->mysqli->store_result()) {
 					$mangTam = $res->fetch_all(MYSQLI_ASSOC);
+					//var_dump($mangTam);
 					if($this->checkErrorResult($mangTam)){
 						$mangKetQua[] = $mangTam;
 					}

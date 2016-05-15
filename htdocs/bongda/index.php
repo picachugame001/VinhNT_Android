@@ -50,7 +50,10 @@
 			$ga = new \class_dir\function_dir\func_duyet_don\Func_Duyet_Don_Gia_Nhap($inputArray);
 			break;
 		case "lay_danh_sach_don_gia_nhap":
-			new \class_dir\function_dir\Func_Get_Don_Gia_Nhap($inputArray);
+			$ga = new \class_dir\function_dir\Func_Get_Don_Gia_Nhap($inputArray);
+			break;
+		case "thach_dau_tat_ca":
+			$ga = new \class_dir\function_dir\Func_Thach_Dau_Tat_Ca($inputArray);
 			break;
 		case "test":
 			$ga = new \Test($inputArray);
@@ -59,6 +62,7 @@
 			echo "{'status':'" . count($inputArray) ."'}";
 			break;
 	}
+	header("Content-type: application/json; charset=utf-8");
 	$ketnoi_SQL->dongKetNoi();
 	$return_JSON->hien_json();
 ?>
