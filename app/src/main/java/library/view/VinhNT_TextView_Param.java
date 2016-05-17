@@ -22,6 +22,9 @@ public class VinhNT_TextView_Param extends VinhNT_TextView implements VinhNT_Par
         super(context);
         field_name = in_field_name;
     }
+    public VinhNT_TextView_Param(Context context){
+        super(context);
+    }
 
     @Override
     public void addParam(JSONObject input) {
@@ -33,7 +36,7 @@ public class VinhNT_TextView_Param extends VinhNT_TextView implements VinhNT_Par
     }
 
     @Override
-    public final String get_field_name() {
+    public String get_field_name() {
         return field_name;
     }
 

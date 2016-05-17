@@ -38,7 +38,7 @@ public class Gia_Nhap_HTTP extends VinhNT_HTTP {
             for(int i = 0;i<lenngError;i++) {
                 int error_Code = get_Error_Code(i);
                 int sub_code = get_Sub_Code(i);
-                Ten_Doi_Bong_TextView_Hide ten_doi_bong_da_dang_ky = table.get_Row(sub_code - 1).get_ten_doi_bong();
+                Ten_Doi_Bong_TextView_Hide ten_doi_bong_da_dang_ky = table.get_Row(sub_code).get_ten_doi_bong();
                 String tên_doi_bong = ten_doi_bong_da_dang_ky.getText().toString();
                 switch (error_Code) {
                     case 10:

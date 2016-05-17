@@ -20,6 +20,12 @@ import library.viewgroup.VinhNT_LinearLayout;
 public class VinhNT_Grid<E extends VinhNT_Grid_Row> extends VinhNT_LinearLayout implements VinhNT_Parameter {
     private ArrayList<E> array_Row;
     private Class<E> myClass;
+    protected Class<E> getMyClass(){
+        return  myClass;
+    }
+    protected ArrayList<E> getArray_Row(){
+        return array_Row;
+    }
     public VinhNT_Grid(Context context,Class<E> cls) {
         super(context);
         myClass = cls;
@@ -47,7 +53,9 @@ public class VinhNT_Grid<E extends VinhNT_Grid_Row> extends VinhNT_LinearLayout 
         removeAllViews();
         array_Row.clear();
     }
-
+    public int get_count_row(){
+        return array_Row.size();
+    }
 
 
     @Override
@@ -82,7 +90,7 @@ public class VinhNT_Grid<E extends VinhNT_Grid_Row> extends VinhNT_LinearLayout 
             int length = JSON_Array.length();
             for(int i=0;i<length;i++){
                 JSONObject element = JSON_Array.getJSONObject(i);
-                E newRow = myClass.getDeclaredConstructor(Context.class).newInstance(getContext());
+                E newRow = newRow();
                 newRow.getParam(element);
                 add_Row(newRow);
             }
@@ -92,7 +100,7 @@ public class VinhNT_Grid<E extends VinhNT_Grid_Row> extends VinhNT_LinearLayout 
             }
         } catch (JSONException e) {
             e.printStackTrace();
-        } catch (InstantiationException e) {
+        } /*catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
@@ -100,9 +108,24 @@ public class VinhNT_Grid<E extends VinhNT_Grid_Row> extends VinhNT_LinearLayout 
             e.printStackTrace();
         } catch (InvocationTargetException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
+    protected E newRow(){
+        E newRow = null;
+        try {
+            newRow = myClass.getDeclaredConstructor(Context.class).newInstance(getContext());
+        } catch (InstantiationException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        }
+        return newRow;
+    }
     @Override
     public boolean isRequired() {
         return false;

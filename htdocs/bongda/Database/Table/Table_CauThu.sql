@@ -88,7 +88,7 @@ CALL TEST_Insert_CauThu(
 		,	'363423455'                                             #  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -101,7 +101,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -114,7 +114,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -127,7 +127,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -140,7 +140,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -153,7 +153,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -166,7 +166,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -179,7 +179,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -192,7 +192,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -205,7 +205,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -218,7 +218,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -231,7 +231,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -244,7 +244,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -257,7 +257,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -270,7 +270,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -283,7 +283,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -296,7 +296,7 @@ CALL TEST_Insert_CauThu(
 		,	'123'                                             		#  password     
 		,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'                        #  ho_ten_dem	
 		,	'ZpjoWFKiqjiO6OlFfhS8'                                  #  ten			
-		,	false                                                   #  gioi_tinh
+		,	true                                                   #  gioi_tinh
 		,	'1989-10-23'										    #  ngay_sinh	
 		,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'    #  dia_chi		
 		,	'223523554674547'                                       #  so_cmnd		
@@ -309,7 +309,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -323,7 +323,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -337,7 +337,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -351,7 +351,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -365,7 +365,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -379,7 +379,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -393,7 +393,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -407,7 +407,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -421,7 +421,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -435,7 +435,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -449,7 +449,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -463,7 +463,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -477,7 +477,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -491,7 +491,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -505,7 +505,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -519,7 +519,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'
@@ -533,7 +533,7 @@ CALL TEST_Insert_CauThu(
 ,	'123'
 ,	'U6R4XcwAMNURThDbJHGMZpPmvGcJhZ'
 ,	'ZpjoWFKiqjiO6OlFfhS8'
-,	'0'
+,	'1'
 ,	'1989-10-23'
 ,	'A8H6JCNbJUwueKidLBkDbHlRkPoukDMV6wVIkfPTHWRFukj3T3'
 ,	'223523554674547'

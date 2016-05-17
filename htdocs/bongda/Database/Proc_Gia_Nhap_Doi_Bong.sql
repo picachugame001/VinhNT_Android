@@ -1,5 +1,5 @@
 DELIMITER $$
-DROP PROCEDURE IF EXISTS Proc_Gia_Nhap_Doi_Bong;
+DROP PROCEDURE IF EXISTS Proc_Gia_Nhap_Doi_Bong;$$
 #
 CREATE
 	PROCEDURE Proc_Gia_Nhap_Doi_Bong(

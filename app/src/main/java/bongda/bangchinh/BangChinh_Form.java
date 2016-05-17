@@ -5,6 +5,7 @@ import android.widget.ScrollView;
 
 import bongda.field.Ten_Doi_Bong;
 import bongda.login.Button_DangKi;
+import bongda.thach_dau_tat_ca.Button_Thach_Dau_Tat_Ca;
 import library.activity.VinhNT_Activity;
 
 /**
@@ -23,13 +24,15 @@ public class BangChinh_Form extends VinhNT_Activity {
         Button_Dang_Ky_Doi_Bong button_dang_ki_doi_bong = new Button_Dang_Ky_Doi_Bong(this);
         Button_Tim_Kiem_Doi_Bong button_tim_kiem_doi_bong = new Button_Tim_Kiem_Doi_Bong(this);
         Button_Duyet_Don_Gia_Nhap button_duyet_don_gia_nhap = new Button_Duyet_Don_Gia_Nhap(this);
+        Button_Thach_Dau_Tat_Ca button_thach_dau_tat_ca = new Button_Thach_Dau_Tat_Ca(this);
         //
         LinearLayout view = super.getContent();
         view.addView(buton_thong_tin);
         view.addView(button_dang_ki_doi_bong);
         view.addView(button_tim_kiem_doi_bong);
         view.addView(button_duyet_don_gia_nhap);
-        //
+        view.addView(button_thach_dau_tat_ca);
+        //abc
         return view;
     }
 }

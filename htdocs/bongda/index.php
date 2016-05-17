@@ -55,6 +55,9 @@
 		case "thach_dau_tat_ca":
 			$ga = new \class_dir\function_dir\Func_Thach_Dau_Tat_Ca($inputArray);
 			break;
+		case "lay_danh_sach_cong_ty":
+			$ga = new \class_dir\function_dir\Func_Lay_Danh_Sach_Cong_Ty($inputArray);
+			break;
 		case "test":
 			$ga = new \Test($inputArray);
 			break;

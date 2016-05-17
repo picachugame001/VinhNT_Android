@@ -67,6 +67,11 @@
         <!--Duyet_Don_Gia_Nhap_Form sdfw-->
         <activity android:name="bongda.duyetdongianhap.Duyet_Don_Gia_Nhap_Form" >
         </activity>
+        <activity android:name="bongda.thach_dau_tat_ca.Thach_Dau_Tat_Ca_Form" >
+        </activity>
+        <activity android:name="bongda.chon_cong_ty.Chon_Cong_Ty_Form" >
+        </activity>
+
     </application>
 
 </manifest>

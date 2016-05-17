@@ -26,19 +26,4 @@ public class VinhNT_EditDate_EditText extends VinhNT_EditText {
         setFocusable(false);
     }
 
-    /*@Override
-    public void onClick(View v) {
-        VinhNT_DatePickerDialog a = new VinhNT_DatePickerDialog(getContext(),new DatePickerDialog.OnDateSetListener(){
-
-            @Override
-            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-
-            }
-        }
-                , 2000
-                ,6
-                ,3);
-        a.show();
-    }*/
-
 }
