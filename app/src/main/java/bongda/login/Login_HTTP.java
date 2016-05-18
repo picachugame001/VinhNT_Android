@@ -20,8 +20,10 @@ import library.view.VinhNT_Dialog;
  */
 public class Login_HTTP extends VinhNT_HTTP {
     private User id;
+    private VinhNT_Activity nguCanh;
     public Login_HTTP(VinhNT_Activity nguCanh) {
         super(nguCanh);
+        this.nguCanh = nguCanh;
     }
     public void set_Param(User a, Password b){
         id = a;
@@ -36,7 +38,20 @@ public class Login_HTTP extends VinhNT_HTTP {
             if(lenngError == 0){
                 //dang nhap thanh cong
                 VinhNT_Common.set_VinhNT_id(id.getText().toString());
+                //
+                JSONObject sendObj = new JSONObject();
+                try {
+                    int is_team_leader = getResults().getInt("is_team_leader");
+
+                    sendObj.put("is_team_leader",is_team_leader);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                //
+
                 Intent intent = new Intent(context, BangChinh_Form.class);
+                intent.putExtra(nguCanh.SEND_OBJECT,sendObj.toString());
                 context.startActivity(intent);
             }
             for(int i = 0;i<lenngError;i++){

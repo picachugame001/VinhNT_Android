@@ -20,7 +20,12 @@ class Func_Login extends \class_dir\BaseFunction{
 		$param_array->add_param($pass);
 		
 		//
-		$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Login',$param_array);
-		$ketnoi_SQL->checkErrorResult($mangKetQua);
+		//$mangKetQua = $ketnoi_SQL->query_get_data('Proc_Login',$param_array);
+		//$ketnoi_SQL->checkErrorResult($mangKetQua);
+		$mangKetQua = array();
+		$ket_qua = $ketnoi_SQL->query_get_multi_data('Proc_Login',$param_array,$mangKetQua);
+		if($ket_qua){
+			$return_JSON->add_Result('is_team_leader',$mangKetQua[0][0]['is_doi_truong'] );
+		}
 	}
 }

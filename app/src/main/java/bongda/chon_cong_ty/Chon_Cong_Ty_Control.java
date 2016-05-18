@@ -6,6 +6,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import library.activity.VinhNT_Activity;
 import library.activity.VinhNT_Common;
 import library.connect.VinhNT_Parameter;
 import library.view.Error_Input;
@@ -18,15 +19,17 @@ public class Chon_Cong_Ty_Control extends VinhNT_LinearLayout_ChieuNgang impleme
     private String ma_cong_ty;
     private VinhNT_CongTy_Text cong_ty_text;
     private VinhNT_CongTy_Button cong_ty_button;
-    public Chon_Cong_Ty_Control(Context context) {
-        super(context);
+    private VinhNT_Activity nguCanh;
+    public Chon_Cong_Ty_Control(VinhNT_Activity in_nguCanh) {
+        super(in_nguCanh);
+        nguCanh = in_nguCanh;
     }
     @Override
     public void init(){
         super.init();
         ma_cong_ty = "";
         cong_ty_text = new VinhNT_CongTy_Text(getContext());
-        cong_ty_button = new VinhNT_CongTy_Button(getContext(),cong_ty_text,this);
+        cong_ty_button = new VinhNT_CongTy_Button(nguCanh,cong_ty_text,this);
 
         addView(cong_ty_text, VinhNT_Common.size_90_per);
         addView(cong_ty_button, VinhNT_Common.size_10_per);

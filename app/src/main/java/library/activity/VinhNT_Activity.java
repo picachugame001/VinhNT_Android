@@ -27,6 +27,7 @@ import vinhnt.test01.R;
  */
 public class VinhNT_Activity extends AppCompatActivity {
     public final String RETURN_OBJECT = "VinhNT_Return";
+    public final String SEND_OBJECT = "VinhNT_Send";
     private ImageView icon;
     //private
     public VinhNT_Activity(){

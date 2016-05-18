@@ -13,6 +13,7 @@ public class VinhNT_TextView_Param_Hide extends VinhNT_TextView_Param {
     }
     public VinhNT_TextView_Param_Hide(Context context){
         super(context);
+        setVisibility(View.GONE);
 
     }
 }

@@ -45,6 +45,8 @@ public class VinhNT_Common {
     public static TextKeyListener nhapText;
     //
     public static String link="http://192.168.0.101/bongda/";
+    //public static String link="http://172.20.82.104/bongda/";
+
     //
     public static VinhNT_Date current_Date;
     public static VinhNT_Time current_Time;

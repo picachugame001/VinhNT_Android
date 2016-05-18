@@ -23,6 +23,5 @@ class Func_Thach_Dau_Tat_Ca extends \class_dir\BaseFunction{
 		$mangKetQua = array();
 		global $ketnoi_SQL;
 		$ket_qua = $ketnoi_SQL->query_get_multi_data('Proc_Thach_Dau_Tat_Ca',$param_array,$mangKetQua);
-		echo $ket_qua;
 	} 
 }

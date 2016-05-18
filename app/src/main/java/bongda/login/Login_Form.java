@@ -80,7 +80,6 @@ public class Login_Form extends VinhNT_Activity{
                         JSONObject returnJSON = new JSONObject(returnString);
                         user.getParam(returnJSON);
                         password.getParam(returnJSON);
-
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }

@@ -1,7 +1,11 @@
 package bongda.bangchinh;
 
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import bongda.field.Ten_Doi_Bong;
 import bongda.login.Button_DangKi;
@@ -32,6 +36,20 @@ public class BangChinh_Form extends VinhNT_Activity {
         view.addView(button_tim_kiem_doi_bong);
         view.addView(button_duyet_don_gia_nhap);
         view.addView(button_thach_dau_tat_ca);
+
+        String sendString = getIntent().getStringExtra(SEND_OBJECT);
+        try {
+            JSONObject sendJSON = new JSONObject(sendString);
+            int is_team_leader = sendJSON.getInt("is_team_leader");
+            if(is_team_leader==0){
+                button_duyet_don_gia_nhap.setVisibility(View.GONE);
+                button_thach_dau_tat_ca.setVisibility(View.GONE);
+
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
         //abc
         return view;
     }
